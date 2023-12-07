@@ -1,0 +1,261 @@
+[gd_scene load_steps=33 format=3 uid="uid://d46wrkgdeynk"]
+
+[ext_resource type="Script" path="res://scripts/initialize-webxr.gd" id="1_wh60i"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_symp0"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="3_1qm7d"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_1235y"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_eystt"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_arg3s"]
+[ext_resource type="PackedScene" uid="uid://c2q5phg8w08o" path="res://addons/godot-xr-tools/functions/movement_jump.tscn" id="5_xjoe5"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="7_0xab3"]
+[ext_resource type="PackedScene" uid="uid://clt88d5d1dje4" path="res://addons/godot-xr-tools/functions/movement_crouch.tscn" id="7_s6rfv"]
+[ext_resource type="PackedScene" uid="uid://bxm1ply47vaan" path="res://addons/godot-xr-tools/functions/movement_climb.tscn" id="8_w8k5l"]
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="10_rnoug"]
+[ext_resource type="PackedScene" uid="uid://dh8grd7s3n8kg" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.tscn" id="11_b3yil"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="12_6yniv"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="13_pk0yp"]
+[ext_resource type="PackedScene" uid="uid://knoxbpbfkqy2" path="res://scenes/climbable_capsule.tscn" id="15_xhjuq"]
+[ext_resource type="PackedScene" uid="uid://2ruu3kxcbr55" path="res://scenes/climbtower.tscn" id="16_ip436"]
+[ext_resource type="Material" uid="uid://52rf2t3jhkem" path="res://wall.tres" id="17_mp675"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_osj4q"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_noqmy"]
+sky_material = SubResource("ProceduralSkyMaterial_osj4q")
+
+[sub_resource type="Environment" id="Environment_pi0m0"]
+background_mode = 2
+sky = SubResource("Sky_noqmy")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t8w8a"]
+albedo_color = Color(0.152941, 0.266667, 0.0980392, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a8whk"]
+material = SubResource("StandardMaterial3D_t8w8a")
+size = Vector2(20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_trsr2"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ggnmf"]
+albedo_color = Color(0.647059, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f63bk"]
+albedo_color = Color(0.647059, 1, 1, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_kqvwe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rioe7"]
+albedo_color = Color(0.0980392, 0.223529, 0.607843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r5kcp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vciuj"]
+albedo_color = Color(0.967076, 0.588718, 0.183697, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_py7i6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_l1mbp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ovpl"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_wh60i")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pi0m0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(1, 1, 0.65098, 1)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("PlaneMesh_a8whk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 0)
+shape = SubResource("BoxShape3D_trsr2")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="LeftController" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="XROrigin3D/LeftController" instance=ExtResource("2_symp0")]
+hand_material_override = SubResource("StandardMaterial3D_ggnmf")
+
+[node name="MovementDirect" parent="XROrigin3D/LeftController" instance=ExtResource("3_1235y")]
+input_action = "thumbstick"
+
+[node name="MovementTurn" parent="XROrigin3D/LeftController" instance=ExtResource("4_eystt")]
+turn_mode = 1
+input_action = "thumbstick"
+
+[node name="MovementJump" parent="XROrigin3D/LeftController" instance=ExtResource("5_xjoe5")]
+jump_button_action = "ax_button"
+
+[node name="MovementCrouch" parent="XROrigin3D/LeftController" instance=ExtResource("7_s6rfv")]
+crouch_button_action = "by_button"
+
+[node name="FunctionPickup" parent="XROrigin3D/LeftController" instance=ExtResource("7_0xab3")]
+pickup_axis_action = "trigger"
+action_button_action = "grip"
+
+[node name="RightController" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+
+[node name="RightHand" parent="XROrigin3D/RightController" instance=ExtResource("3_1qm7d")]
+hand_material_override = SubResource("StandardMaterial3D_f63bk")
+
+[node name="MovementDirect" parent="XROrigin3D/RightController" instance=ExtResource("3_1235y")]
+input_action = "thumbstick"
+
+[node name="MovementTurn" parent="XROrigin3D/RightController" instance=ExtResource("4_eystt")]
+turn_mode = 1
+input_action = "thumbstick"
+
+[node name="MovementJump" parent="XROrigin3D/RightController" instance=ExtResource("5_xjoe5")]
+jump_button_action = "ax_button"
+
+[node name="MovementCrouch" parent="XROrigin3D/RightController" instance=ExtResource("7_s6rfv")]
+crouch_button_action = "by_button"
+
+[node name="FunctionPickup" parent="XROrigin3D/RightController" instance=ExtResource("7_0xab3")]
+pickup_axis_action = "trigger"
+action_button_action = "grip"
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("5_arg3s")]
+
+[node name="MovementClimb" parent="XROrigin3D" instance=ExtResource("8_w8k5l")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Enter VR"
+
+[node name="Goal" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.792768, 0, -0.107327, 0, 0.8, 0, 0.107327, 0, 0.792768, -7.23483, 10.0002, -4.09703)
+visible = false
+mesh = SubResource("TorusMesh_kqvwe")
+surface_material_override/0 = SubResource("StandardMaterial3D_rioe7")
+
+[node name="Goal2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.792768, 0, -0.107327, 0, 0.8, 0, 0.107327, 0, 0.792768, 0.4262, -0.0817728, 5.70849)
+visible = false
+mesh = SubResource("TorusMesh_kqvwe")
+surface_material_override/0 = SubResource("StandardMaterial3D_rioe7")
+
+[node name="PickableBox" parent="." instance=ExtResource("10_rnoug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.549997, 0.845018, 5.87188)
+visible = false
+
+[node name="Box" type="MeshInstance3D" parent="PickableBox"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("BoxMesh_r5kcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_vciuj")
+
+[node name="BoxCollision" type="CollisionShape3D" parent="PickableBox"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_py7i6")
+
+[node name="GrabPointSnap" parent="PickableBox" instance=ExtResource("11_b3yil")]
+visible = true
+
+[node name="GrabPointHandLeft" parent="PickableBox" instance=ExtResource("12_6yniv")]
+transform = Transform3D(0.990352, 0.0867201, -0.108089, -0.0607909, 0.972807, 0.223497, 0.124532, -0.214769, 0.968693, 0, 0, 0)
+
+[node name="GrabPointHandRight" parent="PickableBox" instance=ExtResource("13_pk0yp")]
+
+[node name="Climbable" parent="." instance=ExtResource("15_xhjuq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01708, 1, 0.0348749)
+visible = false
+
+[node name="Climbable2" parent="." instance=ExtResource("16_ip436")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -6.73847, 4.8934, -4.0073)
+visible = false
+
+[node name="Climbable3" parent="." instance=ExtResource("16_ip436")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -3.52412, 0.752987, -6.11629)
+visible = false
+
+[node name="Climbable4" parent="." instance=ExtResource("16_ip436")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.791598, -1.11868, -5.89513)
+visible = false
+
+[node name="Climbable5" parent="." instance=ExtResource("16_ip436")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 4.08154, -2.77051, -3.58951)
+visible = false
+
+[node name="Climbable6" parent="." instance=ExtResource("16_ip436")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -4.72294, 3.26186, -3.58951)
+visible = false
+
+[node name="WALL_SOUTH" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 19.9584)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WALL_SOUTH"]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_l1mbp")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("17_mp675")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WALL_SOUTH"]
+shape = SubResource("BoxShape3D_0ovpl")
+
+[node name="WALL_EAST" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.8119, 2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WALL_EAST"]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_l1mbp")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("17_mp675")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WALL_EAST"]
+shape = SubResource("BoxShape3D_0ovpl")
+
+[node name="WALL_WEST" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.8529, 2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WALL_WEST"]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_l1mbp")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("17_mp675")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WALL_WEST"]
+shape = SubResource("BoxShape3D_0ovpl")
+
+[node name="WALL_NORTH" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -20.7986)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WALL_NORTH"]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_l1mbp")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("17_mp675")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WALL_NORTH"]
+shape = SubResource("BoxShape3D_0ovpl")
