@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctqcl0rx6fkji"]
+
+[ext_resource type="PackedScene" uid="uid://d46wrkgdeynk" path="res://scenes/main.tscn" id="1_dbeno"]
+[ext_resource type="PackedScene" uid="uid://cjyilbm4ucc7s" path="res://addons/godot-xr-tools/objects/climbable.tscn" id="2_k1iqy"]
+
+[node name="Main" instance=ExtResource("1_dbeno")]
+
+[node name="TowerClimb" parent="." index="11" instance=ExtResource("2_k1iqy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.39817, 8.96553, -4.37335)
+collision_mask = 7
+
+[node name="Tower2Climb" parent="." index="12" instance=ExtResource("2_k1iqy")]
+collision_mask = 7
+
+[node name="Tower3Climb" parent="." index="13" instance=ExtResource("2_k1iqy")]
+collision_mask = 7
+
+[node name="Tower4Climb" parent="." index="14" instance=ExtResource("2_k1iqy")]
+collision_mask = 7

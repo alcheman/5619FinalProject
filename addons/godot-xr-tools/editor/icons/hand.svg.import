@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://87wpp1wt0tvp"
-path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+uid="uid://beko1qhyybx7e"
+path="res://.godot/imported/hand.svg-a05486d804ef16320d6cf54e06292b8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+source_file="res://addons/godot-xr-tools/editor/icons/hand.svg"
+dest_files=["res://.godot/imported/hand.svg-a05486d804ef16320d6cf54e06292b8f.ctex"]
 
 [params]
 

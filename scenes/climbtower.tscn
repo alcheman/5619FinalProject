@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://2ruu3kxcbr55"]
+
+[ext_resource type="PackedScene" uid="uid://cjyilbm4ucc7s" path="res://addons/godot-xr-tools/objects/climbable.tscn" id="1_vbuuq"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b3y5p"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_64wkt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_73t2w"]
+albedo_color = Color(0.188235, 0.156863, 0.207843, 1)
+
+[node name="Climbable" instance=ExtResource("1_vbuuq")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("CylinderShape3D_b3y5p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("CylinderMesh_64wkt")
+surface_material_override/0 = SubResource("StandardMaterial3D_73t2w")
