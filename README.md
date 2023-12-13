@@ -21,5 +21,5 @@ CSCI5619 Final Project
 ## Third-Party Assets
 
 - 3D Models
-- Etc.
+- Sheep 'Baa' MP3 courtesy of Joseph Sardin at https://bigsoundbank.com/sound-2346-sheep-4.html
 - Etc.
