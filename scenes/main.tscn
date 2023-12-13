@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d46wrkgdeynk"]
+[gd_scene load_steps=35 format=3 uid="uid://d46wrkgdeynk"]
 
 [ext_resource type="Script" path="res://scripts/initialize-webxr.gd" id="1_wh60i"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_symp0"]
@@ -16,7 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="13_pk0yp"]
 [ext_resource type="PackedScene" uid="uid://knoxbpbfkqy2" path="res://scenes/climbable_capsule.tscn" id="15_xhjuq"]
 [ext_resource type="PackedScene" uid="uid://2ruu3kxcbr55" path="res://scenes/climbtower.tscn" id="16_ip436"]
-[ext_resource type="Material" uid="uid://52rf2t3jhkem" path="res://wall.tres" id="17_mp675"]
+[ext_resource type="Material" path="res://wall.tres" id="17_mp675"]
+[ext_resource type="PackedScene" uid="uid://d3vi5m8ygbtv3" path="res://polygon-adventure/models/SM_Bld_Fence_01.fbx" id="18_duc0l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_osj4q"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -62,6 +63,9 @@ albedo_color = Color(0.967076, 0.588718, 0.183697, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_l1mbp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ovpl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cvyx7"]
+size = Vector3(0.2, 2, 4)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_wh60i")
@@ -259,3 +263,21 @@ surface_material_override/0 = ExtResource("17_mp675")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WALL_NORTH"]
 shape = SubResource("BoxShape3D_0ovpl")
+
+[node name="SM_Bld_Fence_01" parent="." instance=ExtResource("18_duc0l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.406, -0.0442445, -9.43796)
+
+[node name="SM_Bld_Fence_02" parent="." instance=ExtResource("18_duc0l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1782, 0.232913, -10.0889)
+
+[node name="SM_Bld_Fence_03" parent="." instance=ExtResource("18_duc0l")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.6724, 0.142746, -12.4642)
+
+[node name="SM_Bld_Fence_04" parent="." instance=ExtResource("18_duc0l")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.79, 0.311832, -16.1694)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_cvyx7")
