@@ -174,6 +174,7 @@ ranged_collision_mask = 1
 [node name="MovementClimb" parent="XROrigin3D" instance=ExtResource("8_w8k5l")]
 
 [node name="XRToolsPlayerBody" type="CharacterBody3D" parent="XROrigin3D"]
+top_level = true
 script = ExtResource("10_xyo7v")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
@@ -211,7 +212,7 @@ mesh = SubResource("TorusMesh_kqvwe")
 surface_material_override/0 = SubResource("StandardMaterial3D_rioe7")
 
 [node name="PickableBox" parent="." instance=ExtResource("10_rnoug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.549997, 1.60502, 5.87188)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.549997, 1.76502, 5.87188)
 visible = false
 
 [node name="Box" type="MeshInstance3D" parent="PickableBox"]
@@ -334,7 +335,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
 mesh = SubResource("BoxMesh_cvyx7")
 
 [node name="Sheep1" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.15903, 0.687963, -3.28631)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.953, 0.967963, -3.28631)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -358,7 +359,7 @@ autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4327, 0.0426178, 13.2645)
 
 [node name="SM_Wep_Staff_01" parent="." instance=ExtResource("23_jf37u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.442, 0, -0.257)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.442, 0, 13.709)
 
 [node name="RayCast3D" type="RayCast3D" parent="SM_Wep_Staff_01"]
 transform = Transform3D(6, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0.81005, 0)
@@ -368,7 +369,7 @@ debug_shape_thickness = 5
 script = ExtResource("24_0tlhl")
 
 [node name="XRToolsPickable" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02526, 0.786325, -0.728909)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02526, 0.786325, 13.6936)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XRToolsPickable"]
 shape = SubResource("BoxShape3D_5cxkp")
