@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://d46wrkgdeynk"]
+[gd_scene load_steps=40 format=3 uid="uid://d46wrkgdeynk"]
 
 [ext_resource type="Script" path="res://scripts/initialize-webxr.gd" id="1_wh60i"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_symp0"]
@@ -19,6 +19,7 @@
 [ext_resource type="Material" uid="uid://52rf2t3jhkem" path="res://wall.tres" id="17_mp675"]
 [ext_resource type="PackedScene" uid="uid://d3vi5m8ygbtv3" path="res://polygon-adventure/models/SM_Bld_Fence_01.fbx" id="18_duc0l"]
 [ext_resource type="ArrayMesh" uid="uid://cqtdbrp11iwni" path="res://sheep/Sheep1.obj" id="19_nm4hj"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="19_ohn7p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_osj4q"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -113,7 +114,7 @@ hand_material_override = SubResource("StandardMaterial3D_ggnmf")
 input_action = "thumbstick"
 
 [node name="MovementTurn" parent="XROrigin3D/LeftController" instance=ExtResource("4_eystt")]
-turn_mode = 1
+turn_mode = 2
 input_action = "thumbstick"
 
 [node name="MovementJump" parent="XROrigin3D/LeftController" instance=ExtResource("5_xjoe5")]
@@ -125,6 +126,9 @@ crouch_button_action = "by_button"
 [node name="FunctionPickup" parent="XROrigin3D/LeftController" instance=ExtResource("7_0xab3")]
 pickup_axis_action = "trigger"
 action_button_action = "grip"
+grab_distance = 1.0
+grab_collision_mask = 1
+ranged_collision_mask = 1
 
 [node name="RightController" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"
@@ -136,7 +140,7 @@ hand_material_override = SubResource("StandardMaterial3D_f63bk")
 input_action = "thumbstick"
 
 [node name="MovementTurn" parent="XROrigin3D/RightController" instance=ExtResource("4_eystt")]
-turn_mode = 1
+turn_mode = 2
 input_action = "thumbstick"
 
 [node name="MovementJump" parent="XROrigin3D/RightController" instance=ExtResource("5_xjoe5")]
@@ -148,6 +152,9 @@ crouch_button_action = "by_button"
 [node name="FunctionPickup" parent="XROrigin3D/RightController" instance=ExtResource("7_0xab3")]
 pickup_axis_action = "trigger"
 action_button_action = "grip"
+grab_distance = 1.0
+grab_collision_mask = 1
+ranged_collision_mask = 1
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("5_arg3s")]
 
@@ -292,15 +299,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_cvyx7")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="XRToolsPickable" type="RigidBody3D" parent="."]
+script = ExtResource("19_ohn7p")
+picked_up_layer = 1
 
-[node name="Sheep1" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61616, 0, -0.0453749)
+[node name="Sheep1" type="MeshInstance3D" parent="XRToolsPickable"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -9.84143, -0.229736, 9.53674e-07)
 mesh = ExtResource("19_nm4hj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_agvru")
 surface_material_override/1 = SubResource("StandardMaterial3D_trtfe")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61616, 0, -0.0453749)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XRToolsPickable"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -9.84143, -0.229736, 9.53674e-07)
 shape = SubResource("ConvexPolygonShape3D_jfxrb")
