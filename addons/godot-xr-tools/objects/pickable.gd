@@ -135,6 +135,28 @@ var _highlight_requests : Dictionary = {}
 # Is this node highlighted
 var _highlighted : bool = false
 
+# Bouncing parameters
+var bounce_amplitude : float = 0.1  # Adjust the bounce height
+var bounce_speed : float = 0.05  # Adjust the bounce speed
+var bounce_distance : float = 0.5  # Adjust the total bounce distance
+var bounced_distance : float = 0.0  # Track the distance traveled during the bounce
+
+# Called every frame
+func _process(_delta):
+	# Check if the object is picked up
+	if is_picked_up():
+		# If picked up, do not apply the bouncing effect
+		return
+
+	# Bounce the object when it's not held
+	var bounce_offset = 0.2 * bounce_speed
+	position.y += bounce_offset
+	bounced_distance += abs(bounce_offset)
+
+	# Reset the distance when it reaches the specified range
+	if bounced_distance >= bounce_distance:
+		bounced_distance = 0.0
+		bounce_speed *= -1  # Change direction when reaching the distance limit
 
 # Remember some state so we can return to it when the user drops the object
 @onready var original_parent = get_parent()
