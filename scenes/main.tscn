@@ -1,16 +1,17 @@
-[gd_scene load_steps=40 format=3 uid="uid://d46wrkgdeynk"]
+[gd_scene load_steps=49 format=3 uid="uid://d46wrkgdeynk"]
 
 [ext_resource type="Script" path="res://scripts/initialize-webxr.gd" id="1_wh60i"]
+[ext_resource type="Script" path="res://scripts/grapple.gd" id="2_mlqdw"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_symp0"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="3_1qm7d"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_1235y"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_eystt"]
-[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_arg3s"]
 [ext_resource type="PackedScene" uid="uid://c2q5phg8w08o" path="res://addons/godot-xr-tools/functions/movement_jump.tscn" id="5_xjoe5"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="7_0xab3"]
 [ext_resource type="PackedScene" uid="uid://clt88d5d1dje4" path="res://addons/godot-xr-tools/functions/movement_crouch.tscn" id="7_s6rfv"]
 [ext_resource type="PackedScene" uid="uid://bxm1ply47vaan" path="res://addons/godot-xr-tools/functions/movement_climb.tscn" id="8_w8k5l"]
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="10_rnoug"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="10_xyo7v"]
 [ext_resource type="PackedScene" uid="uid://dh8grd7s3n8kg" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.tscn" id="11_b3yil"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="12_6yniv"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="13_pk0yp"]
@@ -20,6 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://d3vi5m8ygbtv3" path="res://polygon-adventure/models/SM_Bld_Fence_01.fbx" id="18_duc0l"]
 [ext_resource type="ArrayMesh" uid="uid://cqtdbrp11iwni" path="res://sheep/Sheep1.obj" id="19_nm4hj"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="19_ohn7p"]
+[ext_resource type="PackedScene" uid="uid://cytadsw2wx3w6" path="res://polygon-adventure/models/SM_Env_HillSnow_01.fbx" id="22_cqf43"]
+[ext_resource type="AudioStream" uid="uid://dtw4cakxio6o0" path="res://sheep_baa.mp3" id="22_w0o47"]
+[ext_resource type="PackedScene" uid="uid://casc03wmcy4m" path="res://polygon-adventure/models/SM_Wep_Staff_01.fbx" id="23_jf37u"]
+[ext_resource type="Script" path="res://scripts/cast.gd" id="24_0tlhl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_osj4q"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -50,6 +55,9 @@ albedo_color = Color(0.647059, 1, 1, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f63bk"]
 albedo_color = Color(0.647059, 1, 1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_iywmc"]
+size = Vector3(0.5, 1.8, 0.5)
+
 [sub_resource type="TorusMesh" id="TorusMesh_kqvwe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rioe7"]
@@ -66,6 +74,9 @@ albedo_color = Color(0.967076, 0.588718, 0.183697, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ovpl"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_prif7"]
+size = Vector3(3.5, 2, 0.4)
+
 [sub_resource type="BoxMesh" id="BoxMesh_cvyx7"]
 size = Vector3(0.2, 2, 4)
 
@@ -77,6 +88,10 @@ albedo_color = Color(0.180392, 0.180392, 0.180392, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jfxrb"]
 points = PackedVector3Array(-0.567778, -0.015033, -1.43299, -0.854837, -0.00990624, -1.71169, -0.557759, -0.0141785, -1.72328, 0.567392, -0.0146058, -1.43241, 0.971191, -0.0107607, 1.46703, -0.971578, -0.0103335, 1.46703, -0.99314, -0.0103335, 1.11068, -1.10356, 1.78831, -1.96259, -0.864856, 0.43954, -1.89248, -0.576926, 0.433986, -1.89595, 0.576539, 0.434841, -1.89537, 0.556502, -0.0133241, -1.72212, 0.843997, -0.0103335, -1.7088, 0.993407, -0.0107607, 1.11184, 1.01192, 1.86734, 1.237, 0.447384, 3.71084, 2.70932, 0.191034, 3.29942, 3.43128, 0.191034, 3.14305, 3.36059, -0.000193238, 3.12383, 3.41564, 0.710268, -0.0103335, 1.46761, -1.01231, 1.86734, 1.237, -0.191203, 3.14305, 3.36059, -0.191203, 3.29942, 3.43128, -0.447771, 3.71084, 2.70932, -1.01536, 1.21411, 0.893399, -1.11249, 2.73419, -2.08948, -0.905149, 2.06601, -2.12425, -0.613734, 2.03525, -2.2297, 0.00111353, 2.01474, -2.32646, 0.86447, 0.440395, -1.8919, 1.10427, 1.78959, -1.96259, 1.01519, 1.21368, 0.893399, 0.998634, 2.39198, 1.23584, 1.11254, 2.75641, -2.13352, 0.495736, 4.2624, 2.41555, 0.271185, 3.75399, 3.11028, 0.186025, 3.36949, 3.39709, -0.000193238, 3.38957, 3.51066, -0.998803, 2.39198, 1.23584, -0.186194, 3.36949, 3.39709, -0.271353, 3.75399, 3.11028, -0.495904, 4.2624, 2.41555, -0.961341, 3.32121, -2.02458, -0.897308, 2.75128, -2.1932, -0.533148, 4.29658, 2.19247, -0.536633, 4.34571, 1.94158, -0.610685, 2.77905, -2.29807, -0.0165282, 2.84912, -2.40874, 0.593527, 2.79529, -2.33805, 0.616614, 2.04037, -2.23955, 0.908465, 2.07156, -2.1341, 0.532979, 4.29658, 2.19247, 0.891259, 2.76923, -2.23492, 0.946144, 3.34727, -2.086, 0.536464, 4.34571, 1.94158, -0.000193238, 4.31666, 2.6902, 0.301241, 4.16584, 2.69309, -0.000193238, 3.86806, 3.12824, -0.000193238, 3.46775, 3.46315, -0.30141, 4.16584, 2.69309, -0.628544, 3.94924, -0.47752, -0.626802, 3.65872, -1.76732, -0.613952, 3.39469, -2.13641, -0.415754, 4.34955, 1.941, 0.00416267, 4.0428, -1.00364, -0.0176172, 3.50748, -2.18045, 0.586776, 3.41306, -2.18161, 0.619881, 3.67624, -1.80962, 0.634474, 3.95095, -0.480996, 0.415586, 4.34955, 1.941, -0.00585604, 3.85268, -1.7847)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5cxkp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7x4sx"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_wh60i")
@@ -156,9 +171,16 @@ grab_distance = 1.0
 grab_collision_mask = 1
 ranged_collision_mask = 1
 
-[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("5_arg3s")]
-
 [node name="MovementClimb" parent="XROrigin3D" instance=ExtResource("8_w8k5l")]
+
+[node name="XRToolsPlayerBody" type="CharacterBody3D" parent="XROrigin3D"]
+script = ExtResource("10_xyo7v")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+script = ExtResource("2_mlqdw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_iywmc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -189,7 +211,7 @@ mesh = SubResource("TorusMesh_kqvwe")
 surface_material_override/0 = SubResource("StandardMaterial3D_rioe7")
 
 [node name="PickableBox" parent="." instance=ExtResource("10_rnoug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.549997, 0.845018, 5.87188)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.549997, 1.60502, 5.87188)
 visible = false
 
 [node name="Box" type="MeshInstance3D" parent="PickableBox"]
@@ -282,16 +304,28 @@ surface_material_override/0 = ExtResource("17_mp675")
 shape = SubResource("BoxShape3D_0ovpl")
 
 [node name="SM_Bld_Fence_01" parent="." instance=ExtResource("18_duc0l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.406, -0.0442445, -9.43796)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4512, 0, -9.438)
+
+[node name="fence_collision" type="CollisionShape3D" parent="SM_Bld_Fence_01"]
+shape = SubResource("BoxShape3D_prif7")
 
 [node name="SM_Bld_Fence_02" parent="." instance=ExtResource("18_duc0l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1782, 0.232913, -10.0889)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0729, 0, -9.438)
+
+[node name="fence_collision" type="CollisionShape3D" parent="SM_Bld_Fence_02"]
+shape = SubResource("BoxShape3D_prif7")
 
 [node name="SM_Bld_Fence_03" parent="." instance=ExtResource("18_duc0l")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.6724, 0.142746, -12.4642)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.672, 0, -15.1702)
+
+[node name="fence_collision" type="CollisionShape3D" parent="SM_Bld_Fence_03"]
+shape = SubResource("BoxShape3D_prif7")
 
 [node name="SM_Bld_Fence_04" parent="." instance=ExtResource("18_duc0l")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.79, 0.311832, -16.1694)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.672, 0, -18.3429)
+
+[node name="fence_collision" type="CollisionShape3D" parent="SM_Bld_Fence_04"]
+shape = SubResource("BoxShape3D_prif7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
@@ -300,7 +334,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
 mesh = SubResource("BoxMesh_cvyx7")
 
 [node name="Sheep1" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.459, 0.2, -0.134)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.15903, 0.687963, -3.28631)
+lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
 
@@ -314,3 +349,30 @@ surface_material_override/1 = SubResource("StandardMaterial3D_trtfe")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sheep1"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_jfxrb")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Sheep1"]
+stream = ExtResource("22_w0o47")
+autoplay = true
+
+[node name="SM_Env_HillSnow_01" parent="." instance=ExtResource("22_cqf43")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4327, 0.0426178, 13.2645)
+
+[node name="SM_Wep_Staff_01" parent="." instance=ExtResource("23_jf37u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.442, 0, -0.257)
+
+[node name="RayCast3D" type="RayCast3D" parent="SM_Wep_Staff_01"]
+transform = Transform3D(6, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0.81005, 0)
+target_position = Vector3(-1, 0, 0)
+collide_with_areas = true
+debug_shape_thickness = 5
+script = ExtResource("24_0tlhl")
+
+[node name="XRToolsPickable" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02526, 0.786325, -0.728909)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XRToolsPickable"]
+shape = SubResource("BoxShape3D_5cxkp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XRToolsPickable/CollisionShape3D"]
+mesh = SubResource("BoxMesh_7x4sx")
+skeleton = NodePath("../..")

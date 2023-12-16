@@ -141,11 +141,15 @@ var bounce_speed : float = 0.05  # Adjust the bounce speed
 var bounce_distance : float = 0.5  # Adjust the total bounce distance
 var bounced_distance : float = 0.0  # Track the distance traveled during the bounce
 
+var sound_player: AudioStreamPlayer3D
+
 # Called every frame
 func _process(_delta):
 	# Check if the object is picked up
 	if is_picked_up():
 		# If picked up, do not apply the bouncing effect
+		print("picked up!")
+		play_pickup_sound()
 		return
 
 	# Bounce the object when it's not held
@@ -157,6 +161,10 @@ func _process(_delta):
 	if bounced_distance >= bounce_distance:
 		bounced_distance = 0.0
 		bounce_speed *= -1  # Change direction when reaching the distance limit
+		
+func play_pickup_sound():
+	print("play baa")
+	sound_player.play()
 
 # Remember some state so we can return to it when the user drops the object
 @onready var original_parent = get_parent()
@@ -176,6 +184,12 @@ func _ready():
 		var grab_point := child as XRToolsGrabPoint
 		if grab_point:
 			_grab_points.push_back(grab_point)
+	
+	sound_player = $AudioStreamPlayer3D 
+	if sound_player:
+		print("Found AudioStreamPlayer3D")
+	else:
+		print("AudioStreamPlayer3D not found, make sure it is a direct child of XRToolsPickable")
 
 
 # Test if this object can be picked up
