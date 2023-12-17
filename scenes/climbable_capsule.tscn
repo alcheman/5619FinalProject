@@ -1,15 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://knoxbpbfkqy2"]
+[gd_scene load_steps=7 format=3 uid="uid://knoxbpbfkqy2"]
 
 [ext_resource type="PackedScene" uid="uid://cjyilbm4ucc7s" path="res://addons/godot-xr-tools/objects/climbable.tscn" id="1_v8et2"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eeq3r"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_586r4"]
+size = Vector3(0.15, 4, 1)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_4df4u"]
+[sub_resource type="BoxMesh" id="BoxMesh_ipae8"]
+size = Vector3(0.15, 4, 0.17)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbuu4"]
+albedo_color = Color(0.337255, 0.121569, 0.00784314, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7beyt"]
+size = Vector3(0.15, 0.15, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ef7y"]
+albedo_color = Color(0.338695, 0.12122, 0.00896161, 1)
 
 [node name="Climbable" instance=ExtResource("1_v8et2")]
 
 [node name="CollisionShape3D" parent="." index="0"]
-shape = SubResource("CapsuleShape3D_eeq3r")
+shape = SubResource("BoxShape3D_586r4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
-mesh = SubResource("CapsuleMesh_4df4u")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.402352)
+mesh = SubResource("BoxMesh_ipae8")
+surface_material_override/0 = SubResource("StandardMaterial3D_qbuu4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.418989)
+mesh = SubResource("BoxMesh_ipae8")
+surface_material_override/0 = SubResource("StandardMaterial3D_qbuu4")
+
+[node name="Rung" type="MeshInstance3D" parent="." index="3"]
+mesh = SubResource("BoxMesh_7beyt")
+surface_material_override/0 = SubResource("StandardMaterial3D_5ef7y")
+
+[node name="Rung2" type="MeshInstance3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409931, 0)
+mesh = SubResource("BoxMesh_7beyt")
+surface_material_override/0 = SubResource("StandardMaterial3D_5ef7y")
+
+[node name="Rung3" type="MeshInstance3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.801785, 0)
+mesh = SubResource("BoxMesh_7beyt")
+surface_material_override/0 = SubResource("StandardMaterial3D_5ef7y")
+
+[node name="Rung4" type="MeshInstance3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1534, 0)
+mesh = SubResource("BoxMesh_7beyt")
+surface_material_override/0 = SubResource("StandardMaterial3D_5ef7y")
+
+[node name="Rung5" type="MeshInstance3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.367397, 0)
+mesh = SubResource("BoxMesh_7beyt")
+surface_material_override/0 = SubResource("StandardMaterial3D_5ef7y")
+
+[node name="Rung6" type="MeshInstance3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.802293, 0)
+mesh = SubResource("BoxMesh_7beyt")
+surface_material_override/0 = SubResource("StandardMaterial3D_5ef7y")
+
+[node name="Rung7" type="MeshInstance3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2279, 0)
+mesh = SubResource("BoxMesh_7beyt")
+surface_material_override/0 = SubResource("StandardMaterial3D_5ef7y")

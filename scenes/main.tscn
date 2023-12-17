@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://d46wrkgdeynk"]
+[gd_scene load_steps=50 format=3 uid="uid://d46wrkgdeynk"]
 
 [ext_resource type="Script" path="res://scripts/initialize-webxr.gd" id="1_wh60i"]
 [ext_resource type="Script" path="res://scripts/grapple.gd" id="2_mlqdw"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="12_6yniv"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="13_pk0yp"]
 [ext_resource type="PackedScene" uid="uid://knoxbpbfkqy2" path="res://scenes/climbable_capsule.tscn" id="15_xhjuq"]
-[ext_resource type="PackedScene" uid="uid://2ruu3kxcbr55" path="res://scenes/climbtower.tscn" id="16_ip436"]
 [ext_resource type="Material" uid="uid://52rf2t3jhkem" path="res://wall.tres" id="17_mp675"]
 [ext_resource type="PackedScene" uid="uid://d3vi5m8ygbtv3" path="res://polygon-adventure/models/SM_Bld_Fence_01.fbx" id="18_duc0l"]
 [ext_resource type="ArrayMesh" uid="uid://cqtdbrp11iwni" path="res://sheep/Sheep1.obj" id="19_nm4hj"]
@@ -239,23 +238,8 @@ transform = Transform3D(0.990352, 0.0867201, -0.108089, -0.0607909, 0.972807, 0.
 
 [node name="GrabPointHandRight" parent="PickableBox" instance=ExtResource("13_pk0yp")]
 
-[node name="Climbable" parent="." instance=ExtResource("15_xhjuq")]
+[node name="LADDER" parent="." instance=ExtResource("15_xhjuq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01708, 1, 0.0348749)
-
-[node name="Climbable2" parent="." instance=ExtResource("16_ip436")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -6.73847, 4.8934, -4.0073)
-
-[node name="Climbable3" parent="." instance=ExtResource("16_ip436")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -3.52412, 0.752987, -6.11629)
-
-[node name="Climbable4" parent="." instance=ExtResource("16_ip436")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.791598, -1.11868, -5.89513)
-
-[node name="Climbable5" parent="." instance=ExtResource("16_ip436")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 4.08154, -2.77051, -3.58951)
-
-[node name="Climbable6" parent="." instance=ExtResource("16_ip436")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -4.72294, 3.26186, -3.58951)
 
 [node name="WALL_SOUTH" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 19.9584)
@@ -336,7 +320,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
 mesh = SubResource("BoxMesh_cvyx7")
 
 [node name="Sheep_bounceable" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.348486, 4.48346, -4.80739)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.348486, 5.17348, -4.80739)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
