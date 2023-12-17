@@ -143,6 +143,8 @@ var bounced_distance : float = 0.0  # Track the distance traveled during the bou
 
 var sound_player: AudioStreamPlayer3D
 
+var should_bounce : bool = true
+
 # Called every frame
 func _process(_delta):
 	# Check if the object is picked up
@@ -152,15 +154,26 @@ func _process(_delta):
 		play_pickup_sound()
 		return
 
-	# Bounce the object when it's not held
-	var bounce_offset = 0.2 * bounce_speed
-	position.y += bounce_offset
-	bounced_distance += abs(bounce_offset)
+	# Check the name of the node to decide whether it should bounce
+	should_bounce = is_bounceable_node()
 
-	# Reset the distance when it reaches the specified range
-	if bounced_distance >= bounce_distance:
-		bounced_distance = 0.0
-		bounce_speed *= -1  # Change direction when reaching the distance limit
+	# Bounce the object when it's not held and should bounce
+	if should_bounce:
+		var bounce_offset = 0.2 * bounce_speed
+		position.y += bounce_offset
+		bounced_distance += abs(bounce_offset)
+
+		# Reset the distance when it reaches the specified range
+		if bounced_distance >= bounce_distance:
+			bounced_distance = 0.0
+			bounce_speed *= -1  # Change direction when reaching the distance limit
+
+	# Rest of your _process function...
+
+# Function to check if the node is bounceable based on its name
+func is_bounceable_node() -> bool:
+	# Modify the condition based on your naming convention
+	return name.find("bounceable") != -1
 		
 func play_pickup_sound():
 	print("play baa")

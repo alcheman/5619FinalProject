@@ -1,16 +1,37 @@
 extends RayCast3D
 
-var max_distance = 10.0
+var should_cast : bool = false
+var collider : Object
+var staff : RigidBody3D
+
+
+func _ready():
+	staff = get_parent().get_parent()
+	print("Staff node is " + str(staff))
 
 func _process(delta):
-	var collider = get_collider()
+	collider = get_collider()
+	
 	if collider != null:
-		var collision_point = get_collision_point()
-		var distance_to_collider = (global_transform.origin - collision_point).length()
+		should_cast = is_castable_node()
 
-		if distance_to_collider <= max_distance:
-			# The object is within the specified distance
-			print("Object within distance:", collider.name)
+		if staff.is_picked_up():
+#			# If the staff is picked up, move the collider to the end of the ray
+#			move_collider_to_ray_end(collider, staff.global_transform.origin, get_target_position())
+#
+			if should_cast:
+				# Move the collider to the end of the ray
+				move_collider_to_ray_end(collider, global_transform.origin, get_target_position())
 		else:
-			# The object is beyond the specified distance
-			print("Object beyond distance:", collider.name)
+			return
+func is_castable_node() -> bool:
+	var c = collider.name.find("bounceable") != -1
+	print("Should cast? " + str(c))
+	return c
+
+func move_collider_to_ray_end(collider, ray_origin, ray_direction):
+	# Ensure that the collider is not null before moving it
+	if collider != null:
+		var ray_end = ray_origin + ray_direction
+		# Move the collider to the end of the ray
+		collider.global_transform.origin = ray_end

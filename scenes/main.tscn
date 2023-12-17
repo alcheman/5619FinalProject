@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://d46wrkgdeynk"]
+[gd_scene load_steps=51 format=3 uid="uid://d46wrkgdeynk"]
 
 [ext_resource type="Script" path="res://scripts/initialize-webxr.gd" id="1_wh60i"]
 [ext_resource type="Script" path="res://scripts/grapple.gd" id="2_mlqdw"]
@@ -21,10 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://d3vi5m8ygbtv3" path="res://polygon-adventure/models/SM_Bld_Fence_01.fbx" id="18_duc0l"]
 [ext_resource type="ArrayMesh" uid="uid://cqtdbrp11iwni" path="res://sheep/Sheep1.obj" id="19_nm4hj"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="19_ohn7p"]
-[ext_resource type="PackedScene" uid="uid://cytadsw2wx3w6" path="res://polygon-adventure/models/SM_Env_HillSnow_01.fbx" id="22_cqf43"]
 [ext_resource type="AudioStream" uid="uid://dtw4cakxio6o0" path="res://sheep_baa.mp3" id="22_w0o47"]
 [ext_resource type="PackedScene" uid="uid://casc03wmcy4m" path="res://polygon-adventure/models/SM_Wep_Staff_01.fbx" id="23_jf37u"]
 [ext_resource type="Script" path="res://scripts/cast.gd" id="24_0tlhl"]
+[ext_resource type="Material" uid="uid://blcn7tpb74kq1" path="res://cast.tres" id="25_luk70"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_osj4q"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -92,6 +92,13 @@ points = PackedVector3Array(-0.567778, -0.015033, -1.43299, -0.854837, -0.009906
 [sub_resource type="BoxShape3D" id="BoxShape3D_5cxkp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7x4sx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hxw0k"]
+material = ExtResource("25_luk70")
+size = Vector3(1, 0.02, 0.01)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7oxxj"]
+size = Vector3(0.05, 3.7, 0.05)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_wh60i")
@@ -212,7 +219,7 @@ mesh = SubResource("TorusMesh_kqvwe")
 surface_material_override/0 = SubResource("StandardMaterial3D_rioe7")
 
 [node name="PickableBox" parent="." instance=ExtResource("10_rnoug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.549997, 1.76502, 5.87188)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.549997, 1.89502, 5.87188)
 visible = false
 
 [node name="Box" type="MeshInstance3D" parent="PickableBox"]
@@ -234,27 +241,21 @@ transform = Transform3D(0.990352, 0.0867201, -0.108089, -0.0607909, 0.972807, 0.
 
 [node name="Climbable" parent="." instance=ExtResource("15_xhjuq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01708, 1, 0.0348749)
-visible = false
 
 [node name="Climbable2" parent="." instance=ExtResource("16_ip436")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -6.73847, 4.8934, -4.0073)
-visible = false
 
 [node name="Climbable3" parent="." instance=ExtResource("16_ip436")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -3.52412, 0.752987, -6.11629)
-visible = false
 
 [node name="Climbable4" parent="." instance=ExtResource("16_ip436")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.791598, -1.11868, -5.89513)
-visible = false
 
 [node name="Climbable5" parent="." instance=ExtResource("16_ip436")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 4.08154, -2.77051, -3.58951)
-visible = false
 
 [node name="Climbable6" parent="." instance=ExtResource("16_ip436")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -4.72294, 3.26186, -3.58951)
-visible = false
 
 [node name="WALL_SOUTH" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 19.9584)
@@ -334,46 +335,54 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_cvyx7")
 
-[node name="Sheep1" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.953, 0.967963, -3.28631)
+[node name="Sheep_bounceable" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.348486, 4.48346, -4.80739)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
 
-[node name="sheep_mesh" type="MeshInstance3D" parent="Sheep1"]
+[node name="sheep_mesh" type="MeshInstance3D" parent="Sheep_bounceable"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 mesh = ExtResource("19_nm4hj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_agvru")
 surface_material_override/1 = SubResource("StandardMaterial3D_trtfe")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sheep1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sheep_bounceable"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_jfxrb")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Sheep1"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Sheep_bounceable"]
 stream = ExtResource("22_w0o47")
 autoplay = true
 
-[node name="SM_Env_HillSnow_01" parent="." instance=ExtResource("22_cqf43")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4327, 0.0426178, 13.2645)
+[node name="box_bounceable" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.68806, 0.786325, 13.6936)
 
-[node name="SM_Wep_Staff_01" parent="." instance=ExtResource("23_jf37u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.442, 0, 13.709)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="box_bounceable"]
+shape = SubResource("BoxShape3D_5cxkp")
 
-[node name="RayCast3D" type="RayCast3D" parent="SM_Wep_Staff_01"]
-transform = Transform3D(6, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0.81005, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="box_bounceable"]
+mesh = SubResource("BoxMesh_7x4sx")
+
+[node name="Staff" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.024843, 7.38492)
+mass = 100.0
+lock_rotation = true
+script = ExtResource("19_ohn7p")
+
+[node name="SM_Wep_Staff_01" parent="Staff" instance=ExtResource("23_jf37u")]
+
+[node name="RayCast3D" type="RayCast3D" parent="Staff/SM_Wep_Staff_01"]
+transform = Transform3D(6, 0, 0, 0, 45, 0, 0, 0, 1, 0, 0, 0)
 target_position = Vector3(-1, 0, 0)
 collide_with_areas = true
 debug_shape_thickness = 5
 script = ExtResource("24_0tlhl")
 
-[node name="XRToolsPickable" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02526, 0.786325, 13.6936)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Staff/SM_Wep_Staff_01/RayCast3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+mesh = SubResource("BoxMesh_hxw0k")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XRToolsPickable"]
-shape = SubResource("BoxShape3D_5cxkp")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XRToolsPickable/CollisionShape3D"]
-mesh = SubResource("BoxMesh_7x4sx")
-skeleton = NodePath("../..")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Staff"]
+shape = SubResource("BoxShape3D_7oxxj")

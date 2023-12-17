@@ -151,6 +151,15 @@ var _previous_ground_global : Vector3 = Vector3.ZERO
 # Player body Collision node
 var _collision_node : CollisionShape3D
 
+# Array to hold references to XRToolsPickable objects
+var pickable_objects: Array[XRToolsPickable] = []
+
+# The maximum distance for triggering the movement
+var max_distance_threshold: float = 10.0
+
+# The percentage by which to shorten the distance
+var shorten_percentage: float = 0.5
+
 
 ## XROrigin3D node
 @onready var origin_node : XROrigin3D = XRHelpers.get_xr_origin(self)
@@ -200,7 +209,40 @@ func _ready():
 	# Propagate defaults
 	_update_enabled()
 	_update_player_radius()
+	
+# Called every frame
+func _process(_delta):
+	# Get the XROrigin3D node (parent node)
+	var xr_origin: XROrigin3D = get_parent()
 
+	# Check the distance between XRToolsPlayerBody and each pickable object
+	for pickable in pickable_objects:
+		print("found pickable: " + str(pickable))
+		if pickable.is_instance_valid():
+			var distance = global_transform.origin.distance_to(pickable.global_transform.origin)
+			print("Distance to Pickable: " + str(distance))
+			
+#			# If the distance exceeds the threshold, move XRToolsPlayerBody
+#			if distance < max_distance_threshold:
+#				print("Moving towards Pickable!")
+#				shorten_distance(xr_origin, pickable)
+
+## Move XRToolsPlayerBody to shorten the distance
+#func shorten_distance(xr_origin: XROrigin3D, pickable: XRToolsPickable) -> void:
+#	var current_distance = global_transform.origin.distance_to(pickable.global_transform.origin)
+#	var target_distance = current_distance * (1.0 - shorten_percentage)
+#
+#	print("Current Distance: " + str(current_distance))
+#	print("Target Distance: " + str(target_distance))
+#
+#	# Calculate the new position towards the pickable object
+#	var direction = (pickable.global_transform.origin - global_transform.origin).normalized()
+#	var new_position = global_transform.origin + direction * target_distance
+#
+#	print("Moving towards Pickable: " + str(new_position))
+#
+#	# Set the new position for XRToolsPlayerBody
+#	global_transform.origin = new_position
 
 func set_enabled(new_value) -> void:
 	enabled = new_value
