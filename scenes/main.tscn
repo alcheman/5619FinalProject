@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://d46wrkgdeynk"]
+[gd_scene load_steps=55 format=3 uid="uid://d46wrkgdeynk"]
 
 [ext_resource type="Script" path="res://scripts/initialize-webxr.gd" id="1_wh60i"]
 [ext_resource type="Script" path="res://scripts/grapple.gd" id="2_mlqdw"]
@@ -10,20 +10,30 @@
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="7_0xab3"]
 [ext_resource type="PackedScene" uid="uid://clt88d5d1dje4" path="res://addons/godot-xr-tools/functions/movement_crouch.tscn" id="7_s6rfv"]
 [ext_resource type="PackedScene" uid="uid://bxm1ply47vaan" path="res://addons/godot-xr-tools/functions/movement_climb.tscn" id="8_w8k5l"]
-[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="10_rnoug"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="10_xyo7v"]
-[ext_resource type="PackedScene" uid="uid://dh8grd7s3n8kg" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.tscn" id="11_b3yil"]
-[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="12_6yniv"]
-[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="13_pk0yp"]
 [ext_resource type="PackedScene" uid="uid://knoxbpbfkqy2" path="res://scenes/climbable_capsule.tscn" id="15_xhjuq"]
 [ext_resource type="Material" uid="uid://52rf2t3jhkem" path="res://wall.tres" id="17_mp675"]
 [ext_resource type="PackedScene" uid="uid://d3vi5m8ygbtv3" path="res://polygon-adventure/models/SM_Bld_Fence_01.fbx" id="18_duc0l"]
 [ext_resource type="ArrayMesh" uid="uid://cqtdbrp11iwni" path="res://sheep/Sheep1.obj" id="19_nm4hj"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="19_ohn7p"]
+[ext_resource type="PackedScene" uid="uid://bjaeexnrxkhmh" path="res://polygon-adventure/models/SM_Env_HillSnow_04.fbx" id="21_hcg8d"]
+[ext_resource type="PackedScene" uid="uid://vnlyyfeixhxq" path="res://polygon-adventure/models/SM_Env_TreeBirch_01.fbx" id="22_dqpwx"]
 [ext_resource type="AudioStream" uid="uid://dtw4cakxio6o0" path="res://sheep_baa.mp3" id="22_w0o47"]
 [ext_resource type="PackedScene" uid="uid://casc03wmcy4m" path="res://polygon-adventure/models/SM_Wep_Staff_01.fbx" id="23_jf37u"]
+[ext_resource type="PackedScene" uid="uid://b2qrd5h5muyyl" path="res://polygon-adventure/models/SM_Env_TreeBirch_01_Snow.fbx" id="23_opfr0"]
 [ext_resource type="Script" path="res://scripts/cast.gd" id="24_0tlhl"]
+[ext_resource type="PackedScene" uid="uid://cxj6ahlfvhx5h" path="res://polygon-adventure/models/SM_Env_TreeBirch_03.fbx" id="24_6sw2t"]
+[ext_resource type="PackedScene" uid="uid://drumtx3m5uvyf" path="res://polygon-adventure/models/SM_Env_TreeBirch_02.fbx" id="25_iooix"]
 [ext_resource type="Material" uid="uid://blcn7tpb74kq1" path="res://cast.tres" id="25_luk70"]
+[ext_resource type="PackedScene" uid="uid://cr3g7xjeitcna" path="res://polygon-adventure/models/SM_Env_TreeLog_01.fbx" id="26_ff571"]
+[ext_resource type="PackedScene" uid="uid://cmfpy761aw0fo" path="res://polygon-adventure/models/SM_Env_TreePine_01.fbx" id="27_4nkum"]
+[ext_resource type="PackedScene" uid="uid://b2gime8alixt0" path="res://polygon-adventure/models/SM_Env_TreePine_01_Snow.fbx" id="28_dbu5s"]
+[ext_resource type="PackedScene" uid="uid://cn6764ddu0m45" path="res://polygon-adventure/models/SM_Env_TreePine_02.fbx" id="29_ym8o8"]
+[ext_resource type="PackedScene" uid="uid://bsy72ytj4ymcf" path="res://polygon-adventure/models/SM_Env_TreePine_04.fbx" id="30_gvd5v"]
+[ext_resource type="PackedScene" uid="uid://b22e3d26sdm7j" path="res://polygon-adventure/models/SM_Env_TreePine_03.fbx" id="31_k38xc"]
+[ext_resource type="PackedScene" uid="uid://dxawv41qlth8a" path="res://polygon-adventure/models/SM_Env_TreeStump_01.fbx" id="32_3g0vu"]
+[ext_resource type="PackedScene" uid="uid://weeysgfu1lgn" path="res://polygon-adventure/models/SM_Env_Tree_05.fbx" id="33_ccvvr"]
+[ext_resource type="PackedScene" uid="uid://brygrrxfg6bkg" path="res://polygon-adventure/models/SM_Env_Tree_04_Snow.fbx" id="34_swj4k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_osj4q"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -56,18 +66,6 @@ albedo_color = Color(0.647059, 1, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iywmc"]
 size = Vector3(0.5, 1.8, 0.5)
-
-[sub_resource type="TorusMesh" id="TorusMesh_kqvwe"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rioe7"]
-albedo_color = Color(0.0980392, 0.223529, 0.607843, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_r5kcp"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vciuj"]
-albedo_color = Color(0.967076, 0.588718, 0.183697, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_py7i6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_l1mbp"]
 
@@ -205,41 +203,8 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Enter VR"
 
-[node name="Goal" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.792768, 0, -0.107327, 0, 0.8, 0, 0.107327, 0, 0.792768, -7.23483, 10.0002, -4.09703)
-visible = false
-mesh = SubResource("TorusMesh_kqvwe")
-surface_material_override/0 = SubResource("StandardMaterial3D_rioe7")
-
-[node name="Goal2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.792768, 0, -0.107327, 0, 0.8, 0, 0.107327, 0, 0.792768, 0.4262, -0.0817728, 5.70849)
-visible = false
-mesh = SubResource("TorusMesh_kqvwe")
-surface_material_override/0 = SubResource("StandardMaterial3D_rioe7")
-
-[node name="PickableBox" parent="." instance=ExtResource("10_rnoug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.549997, 1.89502, 5.87188)
-visible = false
-
-[node name="Box" type="MeshInstance3D" parent="PickableBox"]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
-mesh = SubResource("BoxMesh_r5kcp")
-surface_material_override/0 = SubResource("StandardMaterial3D_vciuj")
-
-[node name="BoxCollision" type="CollisionShape3D" parent="PickableBox"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-shape = SubResource("BoxShape3D_py7i6")
-
-[node name="GrabPointSnap" parent="PickableBox" instance=ExtResource("11_b3yil")]
-visible = true
-
-[node name="GrabPointHandLeft" parent="PickableBox" instance=ExtResource("12_6yniv")]
-transform = Transform3D(0.990352, 0.0867201, -0.108089, -0.0607909, 0.972807, 0.223497, 0.124532, -0.214769, 0.968693, 0, 0, 0)
-
-[node name="GrabPointHandRight" parent="PickableBox" instance=ExtResource("13_pk0yp")]
-
 [node name="LADDER" parent="." instance=ExtResource("15_xhjuq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01708, 1, 0.0348749)
+transform = Transform3D(0.455793, 0, -0.890086, 0, 1, 0, 0.890086, 0, 0.455793, 5.42849, 2.10087, 2.27864)
 
 [node name="WALL_SOUTH" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 19.9584)
@@ -320,7 +285,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
 mesh = SubResource("BoxMesh_cvyx7")
 
 [node name="Sheep_bounceable" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.348486, 5.17348, -4.80739)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.348486, 5.37348, -4.80739)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -370,3 +335,47 @@ mesh = SubResource("BoxMesh_hxw0k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Staff"]
 shape = SubResource("BoxShape3D_7oxxj")
+
+[node name="MOUNTAIN" parent="." instance=ExtResource("21_hcg8d")]
+transform = Transform3D(-0.867967, 0, 0.0594459, 0, 0.87, 0, -0.0594459, 0, -0.867967, 11.6239, -0.600098, 11.5681)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MOUNTAIN"]
+
+[node name="SM_Env_TreeBirch_01" parent="." instance=ExtResource("22_dqpwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.249025, 0, 14.1143)
+
+[node name="SM_Env_TreeBirch_01_Snow" parent="." instance=ExtResource("23_opfr0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30953, 0, 9.80404)
+
+[node name="SM_Env_TreeBirch_03" parent="." instance=ExtResource("24_6sw2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4004, 0, 8.59277)
+
+[node name="SM_Env_TreeBirch_02" parent="." instance=ExtResource("25_iooix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6923, 0, 4.71082)
+
+[node name="SM_Env_TreeLog_01" parent="." instance=ExtResource("26_ff571")]
+transform = Transform3D(0.85148, 0, -0.524387, 0, 1, 0, 0.524387, 0, 0.85148, -14.2551, 0, 5.80748)
+
+[node name="SM_Env_TreePine_01" parent="." instance=ExtResource("27_4nkum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2819, 0, 0.819778)
+
+[node name="SM_Env_TreePine_01_Snow" parent="." instance=ExtResource("28_dbu5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8286, 0, -2.37922)
+
+[node name="SM_Env_TreePine_02" parent="." instance=ExtResource("29_ym8o8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8559, 0, -1.71141)
+
+[node name="SM_Env_TreePine_04" parent="." instance=ExtResource("30_gvd5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8377, 0, -0.0980077)
+
+[node name="SM_Env_TreePine_03" parent="." instance=ExtResource("31_k38xc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61585, 0, 13.2498)
+
+[node name="SM_Env_TreeStump_01" parent="." instance=ExtResource("32_3g0vu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8342, 0, -3.21286)
+
+[node name="SM_Env_Tree_05" parent="." instance=ExtResource("33_ccvvr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8289, 0, -6.90726)
+
+[node name="SM_Env_Tree_04_Snow" parent="." instance=ExtResource("34_swj4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0102, -1.90735e-06, 2.07941)
