@@ -69,11 +69,13 @@ albedo_color = Color(0.647059, 1, 1, 1)
 albedo_color = Color(0.647059, 1, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iywmc"]
-size = Vector3(0.5, 1.8, 0.5)
+size = Vector3(0.5, 1.315, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_l1mbp"]
+size = Vector3(40, 5, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ovpl"]
+size = Vector3(40, 5, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_prif7"]
 size = Vector3(3.5, 2, 0.4)
@@ -188,10 +190,12 @@ ranged_collision_mask = 1
 top_level = true
 script = ExtResource("10_xyo7v")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="PlayerBodyCollision" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.752523, 0)
+axis_lock_linear_y = true
 script = ExtResource("2_mlqdw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBodyCollision"]
 shape = SubResource("BoxShape3D_iywmc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -214,10 +218,9 @@ text = "Enter VR"
 transform = Transform3D(0.455793, 0, -0.890086, 0, 1, 0, 0.890086, 0, 0.455793, 5.42849, 2.10087, 2.27864)
 
 [node name="WALL_SOUTH" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 19.9584)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 20)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WALL_SOUTH"]
-transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("BoxMesh_l1mbp")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("17_mp675")
@@ -226,10 +229,9 @@ surface_material_override/0 = ExtResource("17_mp675")
 shape = SubResource("BoxShape3D_0ovpl")
 
 [node name="WALL_EAST" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.8119, 2, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WALL_EAST"]
-transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("BoxMesh_l1mbp")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("17_mp675")
@@ -238,10 +240,9 @@ surface_material_override/0 = ExtResource("17_mp675")
 shape = SubResource("BoxShape3D_0ovpl")
 
 [node name="WALL_WEST" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.8529, 2, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WALL_WEST"]
-transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("BoxMesh_l1mbp")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("17_mp675")
@@ -250,10 +251,9 @@ surface_material_override/0 = ExtResource("17_mp675")
 shape = SubResource("BoxShape3D_0ovpl")
 
 [node name="WALL_NORTH" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -20.7986)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -20)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WALL_NORTH"]
-transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("BoxMesh_l1mbp")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("17_mp675")
@@ -292,7 +292,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
 mesh = SubResource("BoxMesh_cvyx7")
 
 [node name="Sheep_bounceable" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 0.557388, -4.06286)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 0.797388, -4.06286)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
