@@ -13,6 +13,7 @@ func _ready():
 	add_child(line_drawer)
 
 func _integrate_forces(state):
+	pass
 	# Perform raycast
 	var from_position = global_transform.origin
 	var to_position = from_position + global_transform.basis.z * raycast_length
