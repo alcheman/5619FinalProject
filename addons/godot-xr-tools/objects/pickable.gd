@@ -150,7 +150,7 @@ func _process(_delta):
 	# Check if the object is picked up
 	if is_picked_up():
 		# If picked up, do not apply the bouncing effect
-		print("picked up!")
+#		print("picked up!")
 		play_pickup_sound()
 		return
 
@@ -176,7 +176,7 @@ func is_bounceable_node() -> bool:
 	return name.find("bounceable") != -1
 		
 func play_pickup_sound():
-	print("play baa")
+#	print("play baa")
 	sound_player.play()
 
 # Remember some state so we can return to it when the user drops the object
