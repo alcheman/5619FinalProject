@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://d46wrkgdeynk"]
+[gd_scene load_steps=60 format=3 uid="uid://d46wrkgdeynk"]
 
 [ext_resource type="Script" path="res://scripts/initialize-webxr.gd" id="1_wh60i"]
 [ext_resource type="Material" uid="uid://dcvj3fqfhubsk" path="res://scenes/day.tres" id="2_3ld4o"]
@@ -36,6 +36,10 @@
 [ext_resource type="PackedScene" uid="uid://dxawv41qlth8a" path="res://polygon-adventure/models/SM_Env_TreeStump_01.fbx" id="32_3g0vu"]
 [ext_resource type="PackedScene" uid="uid://weeysgfu1lgn" path="res://polygon-adventure/models/SM_Env_Tree_05.fbx" id="33_ccvvr"]
 [ext_resource type="PackedScene" uid="uid://brygrrxfg6bkg" path="res://polygon-adventure/models/SM_Env_Tree_04_Snow.fbx" id="34_swj4k"]
+[ext_resource type="PackedScene" uid="uid://bpb2jyen7md7p" path="res://polygon-adventure/models/SM_Bld_Stall_Cover_03.fbx" id="35_dxsix"]
+[ext_resource type="PackedScene" uid="uid://cw12ruw0xdvfd" path="res://polygon-adventure/models/SM_Bld_FencePost_01.fbx" id="36_tiylr"]
+[ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="37_jomwv"]
+[ext_resource type="PackedScene" uid="uid://bwa0vynpltaf2" path="res://polygon-adventure/models/SM_Bld_Fence_02.fbx" id="37_mu1b0"]
 [ext_resource type="Script" path="res://scripts/spatial-menu.gd" id="35_3fwb6"]
 [ext_resource type="AudioStream" uid="uid://col3ajm3kgbp5" path="res://music/Echus cover.mp3" id="37_nuh3e"]
 
@@ -72,11 +76,13 @@ material = SubResource("StandardMaterial3D_vnfe8")
 size = Vector3(0.004, 0.004, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iywmc"]
-size = Vector3(0.5, 1.8, 0.5)
+size = Vector3(0.5, 1.315, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_l1mbp"]
+size = Vector3(40, 5, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ovpl"]
+size = Vector3(40, 5, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_prif7"]
 size = Vector3(3.5, 2, 0.4)
@@ -99,10 +105,13 @@ points = PackedVector3Array(-0.567778, -0.015033, -1.43299, -0.854837, -0.009906
 
 [sub_resource type="BoxMesh" id="BoxMesh_hxw0k"]
 material = ExtResource("25_luk70")
-size = Vector3(1, 0.02, 0.01)
+size = Vector3(0.7, 0.02, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7oxxj"]
-size = Vector3(0.05, 3.7, 0.05)
+size = Vector3(0.05, 1.5, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xc5hg"]
+size = Vector3(0.2, 1.2, 1.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hbyho"]
 size = Vector3(1, 0.1, 1)
@@ -216,10 +225,12 @@ script = ExtResource("9_ovhjt")
 top_level = true
 script = ExtResource("10_xyo7v")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="PlayerBodyCollision" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.752523, 0)
+axis_lock_linear_y = true
 script = ExtResource("2_mlqdw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBodyCollision"]
 shape = SubResource("BoxShape3D_iywmc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -242,10 +253,9 @@ text = "Enter VR"
 transform = Transform3D(0.455793, 0, -0.890086, 0, 1, 0, 0.890086, 0, 0.455793, 5.42849, 2.10087, 2.27864)
 
 [node name="WALL_SOUTH" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 19.9584)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 20)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WALL_SOUTH"]
-transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("BoxMesh_l1mbp")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("17_mp675")
@@ -254,10 +264,9 @@ surface_material_override/0 = ExtResource("17_mp675")
 shape = SubResource("BoxShape3D_0ovpl")
 
 [node name="WALL_EAST" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.8119, 2, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WALL_EAST"]
-transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("BoxMesh_l1mbp")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("17_mp675")
@@ -266,10 +275,9 @@ surface_material_override/0 = ExtResource("17_mp675")
 shape = SubResource("BoxShape3D_0ovpl")
 
 [node name="WALL_WEST" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.8529, 2, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WALL_WEST"]
-transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("BoxMesh_l1mbp")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("17_mp675")
@@ -278,10 +286,9 @@ surface_material_override/0 = ExtResource("17_mp675")
 shape = SubResource("BoxShape3D_0ovpl")
 
 [node name="WALL_NORTH" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -20.7986)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -20)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WALL_NORTH"]
-transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("BoxMesh_l1mbp")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("17_mp675")
@@ -302,13 +309,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0729, 0, -9.438)
 shape = SubResource("BoxShape3D_prif7")
 
 [node name="SM_Bld_Fence_03" parent="." instance=ExtResource("18_duc0l")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.672, 0, -15.1702)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.672, 0, -14.955)
 
 [node name="fence_collision" type="CollisionShape3D" parent="SM_Bld_Fence_03"]
 shape = SubResource("BoxShape3D_prif7")
 
 [node name="SM_Bld_Fence_04" parent="." instance=ExtResource("18_duc0l")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.672, 0, -18.3429)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.672, 0, -18.3693)
 
 [node name="fence_collision" type="CollisionShape3D" parent="SM_Bld_Fence_04"]
 shape = SubResource("BoxShape3D_prif7")
@@ -320,7 +327,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
 mesh = SubResource("BoxMesh_cvyx7")
 
 [node name="Sheep_bounceable" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.348486, 6.1435, -4.80739)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 0.797388, -4.06286)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -350,7 +357,7 @@ shape = SubResource("BoxShape3D_5cxkp")
 mesh = SubResource("BoxMesh_7x4sx")
 
 [node name="Staff" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.024843, 7.38492)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3548, 0.434741, -18.572)
 mass = 100.0
 lock_rotation = true
 script = ExtResource("19_ohn7p")
@@ -358,17 +365,18 @@ script = ExtResource("19_ohn7p")
 [node name="SM_Wep_Staff_01" parent="Staff" instance=ExtResource("23_jf37u")]
 
 [node name="RayCast3D" type="RayCast3D" parent="Staff/SM_Wep_Staff_01"]
-transform = Transform3D(6, 0, 0, 0, 45, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(6, 0, 0, 0, 20, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(-1, 0, 0)
 collide_with_areas = true
 debug_shape_thickness = 5
 script = ExtResource("24_0tlhl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Staff/SM_Wep_Staff_01/RayCast3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0.005, 0)
 mesh = SubResource("BoxMesh_hxw0k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Staff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_7oxxj")
 
 [node name="MOUNTAIN" parent="." instance=ExtResource("21_hcg8d")]
@@ -414,6 +422,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8289, 0, -6.90726)
 
 [node name="SM_Env_Tree_04_Snow" parent="." instance=ExtResource("34_swj4k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0102, -1.90735e-06, 2.07941)
+
+[node name="SM_Bld_Stall_Cover_03" parent="." instance=ExtResource("35_dxsix")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.3048, 0, -19.0923)
+
+[node name="SM_Bld_FencePost_01" parent="." instance=ExtResource("36_tiylr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8219, 0, -9.50358)
+
+[node name="SM_Bld_FencePost_02" parent="." instance=ExtResource("36_tiylr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.053, 0, -9.438)
+
+[node name="SM_Bld_FencePost_03" parent="." instance=ExtResource("36_tiylr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.672, 0, -19.9834)
+
+[node name="SM_Bld_FencePost_04" parent="." instance=ExtResource("36_tiylr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.672, 0, -16.6487)
+
+[node name="SM_Bld_Fence_06" parent="." instance=ExtResource("18_duc0l")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.672, 0, -11.4371)
+
+[node name="fence_collision" type="CollisionShape3D" parent="SM_Bld_Fence_06"]
+shape = SubResource("BoxShape3D_prif7")
+
+[node name="SM_Bld_FencePost_05" parent="." instance=ExtResource("36_tiylr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.672, 0, -13.149)
+
+[node name="Gate" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9621, 0, -14.9563)
+script = ExtResource("19_ohn7p")
+
+[node name="InteractableHandle" parent="Gate" instance=ExtResource("37_jomwv")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gate"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.7, 0)
+shape = SubResource("BoxShape3D_xc5hg")
+
+[node name="gate_mesh" parent="Gate" instance=ExtResource("37_mu1b0")]
 
 [node name="SpatialMenu" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.573576, -0.819152, 0, 0.819152, 0.573576, 0, 1.5, -3)
