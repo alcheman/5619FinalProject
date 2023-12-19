@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 [gd_scene load_steps=65 format=3 uid="uid://d46wrkgdeynk"]
+=======
+[gd_scene load_steps=71 format=3 uid="uid://d46wrkgdeynk"]
+>>>>>>> a10cd8a39cea6417ad74a078f84bd4005cb9466c
 
 [ext_resource type="Script" path="res://scripts/initialize-webxr.gd" id="1_wh60i"]
+[ext_resource type="Environment" uid="uid://ds0hgagwdf5re" path="res://scenes/day_environment.tres" id="2_0cmo7"]
 [ext_resource type="Script" path="res://scripts/grapple.gd" id="2_mlqdw"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_symp0"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="3_1qm7d"]
@@ -10,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="7_0xab3"]
 [ext_resource type="PackedScene" uid="uid://clt88d5d1dje4" path="res://addons/godot-xr-tools/functions/movement_crouch.tscn" id="7_s6rfv"]
 [ext_resource type="PackedScene" uid="uid://bxm1ply47vaan" path="res://addons/godot-xr-tools/functions/movement_climb.tscn" id="8_w8k5l"]
+[ext_resource type="Script" path="res://scripts/laser_pointer.gd" id="9_ovhjt"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="10_xyo7v"]
 [ext_resource type="PackedScene" uid="uid://knoxbpbfkqy2" path="res://scenes/climbable_capsule.tscn" id="15_xhjuq"]
 [ext_resource type="Material" uid="uid://52rf2t3jhkem" path="res://wall.tres" id="17_mp675"]
@@ -34,10 +40,12 @@
 [ext_resource type="PackedScene" uid="uid://dxawv41qlth8a" path="res://polygon-adventure/models/SM_Env_TreeStump_01.fbx" id="32_3g0vu"]
 [ext_resource type="PackedScene" uid="uid://weeysgfu1lgn" path="res://polygon-adventure/models/SM_Env_Tree_05.fbx" id="33_ccvvr"]
 [ext_resource type="PackedScene" uid="uid://brygrrxfg6bkg" path="res://polygon-adventure/models/SM_Env_Tree_04_Snow.fbx" id="34_swj4k"]
+[ext_resource type="Script" path="res://scripts/spatial-menu.gd" id="35_3fwb6"]
 [ext_resource type="PackedScene" uid="uid://bpb2jyen7md7p" path="res://polygon-adventure/models/SM_Bld_Stall_Cover_03.fbx" id="35_dxsix"]
 [ext_resource type="PackedScene" uid="uid://cw12ruw0xdvfd" path="res://polygon-adventure/models/SM_Bld_FencePost_01.fbx" id="36_tiylr"]
 [ext_resource type="Script" path="res://scripts/gate.gd" id="37_bg4xu"]
 [ext_resource type="PackedScene" uid="uid://bwa0vynpltaf2" path="res://polygon-adventure/models/SM_Bld_Fence_02.fbx" id="37_mu1b0"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://cytadsw2wx3w6" path="res://polygon-adventure/models/SM_Env_HillSnow_01.fbx" id="39_36pki"]
 [ext_resource type="PackedScene" uid="uid://dm11vvq4ml0b1" path="res://polygon-adventure/models/SM_Prop_Logpile_01.fbx" id="40_n7qnv"]
 
@@ -53,6 +61,11 @@ background_mode = 2
 sky = SubResource("Sky_noqmy")
 tonemap_mode = 2
 glow_enabled = true
+=======
+[ext_resource type="AudioStream" uid="uid://col3ajm3kgbp5" path="res://music/Echus cover.mp3" id="37_nuh3e"]
+[ext_resource type="AudioStream" uid="uid://cji5aam14b87a" path="res://music/Secunda.mp3" id="43_jmkuh"]
+[ext_resource type="AudioStream" uid="uid://dyrd8ja44mc8g" path="res://music/Axolotl.mp3" id="44_ojuol"]
+>>>>>>> a10cd8a39cea6417ad74a078f84bd4005cb9466c
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t8w8a"]
 albedo_color = Color(0.152941, 0.266667, 0.0980392, 1)
@@ -69,6 +82,13 @@ albedo_color = Color(0.647059, 1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f63bk"]
 albedo_color = Color(0.647059, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vnfe8"]
+shading_mode = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_3c1y3"]
+material = SubResource("StandardMaterial3D_vnfe8")
+size = Vector3(0.004, 0.004, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iywmc"]
 size = Vector3(0.5, 1.315, 0.5)
@@ -104,6 +124,7 @@ size = Vector3(0.05, 1.5, 0.05)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xc5hg"]
 size = Vector3(0.2, 1.2, 1.7)
 
+<<<<<<< HEAD
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_2ib0t"]
 height = 9.0
 radius = 10.0
@@ -121,16 +142,40 @@ height = 10.0
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bso86"]
 height = 3.0
 radius = 1.0
+=======
+[sub_resource type="BoxShape3D" id="BoxShape3D_hbyho"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dgxf7"]
+viewport_path = NodePath("SpatialMenu/PlaneMesh/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2330"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_dgxf7")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8qr68"]
+size = Vector2(1, 1)
+
+[sub_resource type="Theme" id="Theme_n3efh"]
+default_font_size = 45
+
+[sub_resource type="Theme" id="Theme_2qghh"]
+default_font_size = 45
+>>>>>>> a10cd8a39cea6417ad74a078f84bd4005cb9466c
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_wh60i")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_pi0m0")
+unique_name_in_owner = true
+environment = ExtResource("2_0cmo7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-light_color = Color(1, 1, 0.65098, 1)
+light_color = Color(1, 1, 0.737255, 1)
 shadow_enabled = true
 
 [node name="Ground" type="StaticBody3D" parent="."]
@@ -144,6 +189,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 0)
 shape = SubResource("BoxShape3D_trsr2")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
+unique_name_in_owner = true
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
@@ -199,6 +245,11 @@ action_button_action = "grip"
 grab_distance = 1.0
 grab_collision_mask = 1
 ranged_collision_mask = 1
+
+[node name="LaserPointer" type="MeshInstance3D" parent="XROrigin3D/RightController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+mesh = SubResource("BoxMesh_3c1y3")
+script = ExtResource("9_ovhjt")
 
 [node name="MovementClimb" parent="XROrigin3D" instance=ExtResource("8_w8k5l")]
 
@@ -310,7 +361,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
 mesh = SubResource("BoxMesh_cvyx7")
 
 [node name="Sheep_bounceable" type="RigidBody3D" parent="."]
+<<<<<<< HEAD
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 0.927388, -4.06286)
+=======
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 1.00739, -4.06286)
+>>>>>>> a10cd8a39cea6417ad74a078f84bd4005cb9466c
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -526,6 +581,7 @@ player = NodePath("../XROrigin3D/XRCamera3D")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.6, 0)
 shape = SubResource("BoxShape3D_xc5hg")
 
+<<<<<<< HEAD
 [node name="large_mountain" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.624, -0.6, 9.136)
 
@@ -574,3 +630,95 @@ transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, 
 shape = SubResource("CylinderShape3D_bso86")
 
 [node name="SM_Prop_Logpile_01" parent="log_pile" instance=ExtResource("40_n7qnv")]
+=======
+[node name="gate_mesh" parent="Gate" instance=ExtResource("37_mu1b0")]
+
+[node name="SpatialMenu" type="Area3D" parent="." groups=["spatial_menus"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
+script = ExtResource("35_3fwb6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpatialMenu"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_hbyho")
+
+[node name="PlaneMesh" type="MeshInstance3D" parent="SpatialMenu"]
+material_override = SubResource("StandardMaterial3D_c2330")
+mesh = SubResource("PlaneMesh_8qr68")
+skeleton = NodePath("../..")
+
+[node name="SubViewport" type="SubViewport" parent="SpatialMenu/PlaneMesh"]
+transparent_bg = true
+size = Vector2i(1024, 1024)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="SpatialMenu/PlaneMesh/SubViewport"]
+
+[node name="ColorRect" type="ColorRect" parent="SpatialMenu/PlaneMesh/SubViewport/CanvasLayer2"]
+offset_right = 1024.0
+offset_bottom = 1024.0
+color = Color(0.180392, 0.572549, 0.572549, 0.501961)
+
+[node name="NextSong" type="Button" parent="SpatialMenu/PlaneMesh/SubViewport/CanvasLayer2"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -374.0
+offset_top = -324.0
+offset_right = -174.0
+offset_bottom = -124.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_n3efh")
+text = "Next 
+Song"
+
+[node name="PrevSong" type="Button" parent="SpatialMenu/PlaneMesh/SubViewport/CanvasLayer2"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -844.0
+offset_top = -324.0
+offset_right = -644.0
+offset_bottom = -124.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_2qghh")
+text = "Previous 
+Song"
+
+[node name="Day" type="Button" parent="SpatialMenu/PlaneMesh/SubViewport/CanvasLayer2"]
+offset_left = 180.0
+offset_top = 200.0
+offset_right = 380.0
+offset_bottom = 400.0
+theme = SubResource("Theme_2qghh")
+text = "Day"
+
+[node name="Night" type="Button" parent="SpatialMenu/PlaneMesh/SubViewport/CanvasLayer2"]
+offset_left = 650.0
+offset_top = 200.0
+offset_right = 850.0
+offset_bottom = 400.0
+theme = SubResource("Theme_2qghh")
+text = "Night"
+
+[node name="Echus" type="AudioStreamPlayer" parent="SpatialMenu"]
+stream = ExtResource("37_nuh3e")
+volume_db = -5.0
+
+[node name="Secunda" type="AudioStreamPlayer" parent="SpatialMenu"]
+stream = ExtResource("43_jmkuh")
+
+[node name="Axolotl" type="AudioStreamPlayer" parent="SpatialMenu"]
+stream = ExtResource("44_ojuol")
+
+[connection signal="button_pressed" from="XROrigin3D/RightController" to="XROrigin3D/RightController/LaserPointer" method="_on_controller_button_pressed" binds= [true]]
+[connection signal="button_released" from="XROrigin3D/RightController" to="XROrigin3D/RightController/LaserPointer" method="_on_controller_button_pressed" binds= [false]]
+[connection signal="pressed" from="SpatialMenu/PlaneMesh/SubViewport/CanvasLayer2/NextSong" to="SpatialMenu" method="_on_next_song_pressed"]
+[connection signal="pressed" from="SpatialMenu/PlaneMesh/SubViewport/CanvasLayer2/PrevSong" to="SpatialMenu" method="_on_prev_song_pressed"]
+[connection signal="pressed" from="SpatialMenu/PlaneMesh/SubViewport/CanvasLayer2/Day" to="SpatialMenu" method="_on_day_pressed"]
+[connection signal="pressed" from="SpatialMenu/PlaneMesh/SubViewport/CanvasLayer2/Night" to="SpatialMenu" method="_on_night_pressed"]
+>>>>>>> a10cd8a39cea6417ad74a078f84bd4005cb9466c

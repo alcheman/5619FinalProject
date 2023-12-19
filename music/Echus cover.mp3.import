@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://col3ajm3kgbp5"
+path="res://.godot/imported/Echus cover.mp3-a768e3432a19d14d02cbaa98b491ead6.mp3str"
+
+[deps]
+
+source_file="res://music/Echus cover.mp3"
+dest_files=["res://.godot/imported/Echus cover.mp3-a768e3432a19d14d02cbaa98b491ead6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
