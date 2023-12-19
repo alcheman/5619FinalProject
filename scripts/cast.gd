@@ -14,19 +14,16 @@ func _process(delta):
 	
 	if collider != null:
 		should_cast = is_castable_node()
-
-		if staff.is_picked_up():
-#			# If the staff is picked up, move the collider to the end of the ray
-#			move_collider_to_ray_end(collider, staff.global_transform.origin, get_target_position())
-#
-			if should_cast:
-				# Move the collider to the end of the ray
-				move_collider_to_ray_end(collider, global_transform.origin, get_target_position())
+		# If the staff is picked up, move the collider to the end of the ray
+		if staff.is_picked_up() and should_cast:
+			# Move the collider to the end of the ray
+			move_collider_to_ray_end(collider, global_transform.origin, get_target_position())
 		else:
 			return
+# only cast staff on sheep 
 func is_castable_node() -> bool:
 	var c = collider.name.find("bounceable") != -1
-	print("Should cast? " + str(c))
+#	print("Should cast? " + str(c))
 	return c
 
 func move_collider_to_ray_end(collider, ray_origin, ray_direction):
