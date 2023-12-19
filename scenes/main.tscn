@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://d46wrkgdeynk"]
+[gd_scene load_steps=97 format=3 uid="uid://d46wrkgdeynk"]
 
 [ext_resource type="Script" path="res://scripts/initialize-webxr.gd" id="1_wh60i"]
 [ext_resource type="Environment" uid="uid://ds0hgagwdf5re" path="res://scenes/day_environment.tres" id="2_0cmo7"]
@@ -114,6 +114,16 @@ size = Vector3(0.7, 0.02, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7oxxj"]
 size = Vector3(0.05, 1.5, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4upsl"]
+size = Vector3(10, 10, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ib1g5"]
+size = Vector3(20, 10, 20)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_m15ri"]
+height = 17.887
+radius = 2.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xc5hg"]
 size = Vector3(0.2, 1.2, 1.7)
@@ -289,7 +299,13 @@ grow_vertical = 2
 text = "Enter VR"
 
 [node name="LADDER" parent="." instance=ExtResource("15_xhjuq")]
-transform = Transform3D(0.455793, 0, -0.890086, 0, 1, 0, 0.890086, 0, 0.455793, 5.42849, 2.10087, 2.27864)
+transform = Transform3D(0.619743, 0.45027, -0.642788, -0.587785, 0.809017, -2.41106e-08, 0.520026, 0.377821, 0.766044, 4.41193, 5.38187, 10.6537)
+
+[node name="LADDER3" parent="." instance=ExtResource("15_xhjuq")]
+transform = Transform3D(0.619743, 0.45027, -0.642788, -0.587785, 0.809017, -2.41106e-08, 0.520026, 0.377821, 0.766044, 1.377, 0.131706, 8.11901)
+
+[node name="LADDER2" parent="." instance=ExtResource("15_xhjuq")]
+transform = Transform3D(0.619743, 0.45027, -0.642788, -0.587785, 0.809017, -4.82212e-08, 0.520026, 0.377821, 0.766044, 2.74921, 2.26742, 9.35026)
 
 [node name="WALL_SOUTH" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 20)
@@ -366,7 +382,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
 mesh = SubResource("BoxMesh_cvyx7")
 
 [node name="Sheep_bounceable" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 1.20739, -4.06286)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 1.35739, -4.06286)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -421,7 +437,19 @@ shape = SubResource("BoxShape3D_7oxxj")
 [node name="MOUNTAIN" parent="." instance=ExtResource("21_hcg8d")]
 transform = Transform3D(-0.867967, 0, 0.0594459, 0, 0.87, 0, -0.0594459, 0, -0.867967, 11.6239, -0.600098, 11.5681)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MOUNTAIN"]
+[node name="RigidBody3D" type="RigidBody3D" parent="MOUNTAIN"]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="MOUNTAIN/RigidBody3D"]
+transform = Transform3D(0.968903, 0, -0.247439, 0, 1, 0, 0.247439, 0, 0.968903, -3.94938, 5.33508, -3.95535)
+shape = SubResource("BoxShape3D_4upsl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MOUNTAIN/RigidBody3D"]
+transform = Transform3D(0.984075, 0, 0.177755, 0, 1, 0, -0.177755, 0, 0.984075, -0.0912447, -2.48433, -1.33227)
+shape = SubResource("BoxShape3D_ib1g5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MOUNTAIN/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.80943, -0.0369824, 0.22863)
+shape = SubResource("CylinderShape3D_m15ri")
 
 [node name="SM_Bld_Stall_Cover_03" parent="." instance=ExtResource("35_dxsix")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.3048, 0, -19.0923)
