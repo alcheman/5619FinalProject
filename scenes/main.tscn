@@ -115,20 +115,20 @@ size = Vector3(0.7, 0.02, 0.01)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7oxxj"]
 size = Vector3(0.05, 1.5, 0.05)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_551xu"]
-size = Vector3(1.5, 2, 1.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_wtlcb"]
+size = Vector3(1, 3.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cgfa8"]
 size = Vector3(1.6, 4.2, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_551xu"]
+size = Vector3(1.5, 2, 1.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_63dvl"]
 size = Vector3(1.5, 3.5, 1.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2xbha"]
 size = Vector3(1, 2.5, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_wtlcb"]
-size = Vector3(1, 3.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xc5hg"]
 size = Vector3(0.2, 1.2, 1.7)
@@ -348,7 +348,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
 mesh = SubResource("BoxMesh_cvyx7")
 
 [node name="Sheep_bounceable" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 1.04739, -4.06286)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 1.00739, -4.06286)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -407,14 +407,30 @@ transform = Transform3D(-0.867967, 0, 0.0594459, 0, 0.87, 0, -0.0594459, 0, -0.8
 
 [node name="BUSHES" type="Node3D" parent="."]
 
-[node name="SM_Env_Bush_06" parent="BUSHES" instance=ExtResource("47_14el3")]
+[node name="Bush_06" parent="BUSHES" instance=ExtResource("47_14el3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69226, 0, -9.9403)
 
-[node name="SM_Env_Bush_07" parent="BUSHES" instance=ExtResource("46_sh7pk")]
+[node name="RigidBody3D" type="RigidBody3D" parent="BUSHES/Bush_06"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BUSHES/Bush_06/RigidBody3D"]
+shape = SubResource("BoxShape3D_wtlcb")
+
+[node name="Bush_07" parent="BUSHES" instance=ExtResource("46_sh7pk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.703782, 0, -10.2424)
 
-[node name="SM_Env_Bush_08" parent="BUSHES" instance=ExtResource("45_h276w")]
+[node name="RigidBody3D" type="RigidBody3D" parent="BUSHES/Bush_07"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BUSHES/Bush_07/RigidBody3D"]
+shape = SubResource("BoxShape3D_cgfa8")
+
+[node name="Bush_08" parent="BUSHES" instance=ExtResource("45_h276w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.993554, 0, -6.72293)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="BUSHES/Bush_08"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BUSHES/Bush_08/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67465, 0.107292)
+shape = SubResource("BoxShape3D_551xu")
 
 [node name="Bush_01" parent="BUSHES" instance=ExtResource("45_h276w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42942, 0, 10.7106)
