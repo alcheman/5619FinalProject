@@ -22,7 +22,6 @@ func _process(delta):
 			return
 func is_castable_node() -> bool:
 	var c = collider.name.find("bounceable") != -1
-	print("Should cast? " + str(c))
 	return c
 
 func move_collider_to_ray_end(collider, ray_origin, ray_direction):

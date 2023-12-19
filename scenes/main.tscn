@@ -312,7 +312,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
 mesh = SubResource("BoxMesh_cvyx7")
 
 [node name="Sheep_bounceable" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 0.523407, -4.06286)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 0.833407, -4.06286)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -333,7 +333,7 @@ stream = ExtResource("22_w0o47")
 autoplay = true
 
 [node name="Sheep_bounceable6" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50437, 0.833406, -14.0291)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50437, 1.14341, -14.0291)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -354,7 +354,7 @@ stream = ExtResource("22_w0o47")
 autoplay = true
 
 [node name="Sheep_bounceable5" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 1.30244, 14.1854)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 1.61244, 14.1854)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -375,7 +375,7 @@ stream = ExtResource("22_w0o47")
 autoplay = true
 
 [node name="Sheep_bounceable4" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8086, 0.652641, -4.79504)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8086, 0.962641, -4.79504)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -396,7 +396,7 @@ stream = ExtResource("22_w0o47")
 autoplay = true
 
 [node name="Sheep_bounceable2" type="RigidBody3D" parent="."]
-transform = Transform3D(0.989883, -0.141886, 0, 0.141886, 0.989883, 0, 0, 0, 1, 8.587, 3.00795, 5.07609)
+transform = Transform3D(0.989883, -0.141886, 0, 0.141886, 0.989883, 0, 0, 0, 1, 8.587, 3.31795, 5.07609)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -417,7 +417,7 @@ stream = ExtResource("22_w0o47")
 autoplay = true
 
 [node name="Sheep_bounceable3" type="RigidBody3D" parent="."]
-transform = Transform3D(0.989883, -0.141886, 0, 0.141725, 0.988761, -0.0475946, 0.00675301, 0.0471131, 0.998867, 3.96589, 3.52648, 11.8103)
+transform = Transform3D(0.989883, -0.141886, 0, 0.141725, 0.988761, -0.0475946, 0.00675301, 0.0471131, 0.998867, 3.96589, 3.83648, 11.8103)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
