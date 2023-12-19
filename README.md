@@ -26,3 +26,5 @@ CSCI5619 Final Project
 
 Music:
 - Echus Cover courtesy of Boards of Canada and Mansin at https://www.youtube.com/watch?v=8WCIVoXy34o&ab_channel=Mansin
+- Axoltl courtesy of C418
+- Secunda courtesy of Jeremy Soule
