@@ -168,11 +168,8 @@ func _process(_delta):
 			bounced_distance = 0.0
 			bounce_speed *= -1  # Change direction when reaching the distance limit
 
-	# Rest of your _process function...
-
 # Function to check if the node is bounceable based on its name
 func is_bounceable_node() -> bool:
-	# Modify the condition based on your naming convention
 	return name.find("bounceable") != -1
 		
 func play_pickup_sound():
