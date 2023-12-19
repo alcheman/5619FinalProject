@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbvuiest43oq7"]
+[gd_scene load_steps=9 format=3 uid="uid://b8xc0dyn85thi"]
 
 [ext_resource type="PackedScene" uid="uid://dyn30er0u1kb7" path="res://polygon-adventure/models/SM_Env_Bush_03.fbx" id="1_554us"]
 [ext_resource type="PackedScene" uid="uid://dvclhmgr8af16" path="res://polygon-adventure/models/SM_Env_Bush_02.fbx" id="2_c1o6d"]

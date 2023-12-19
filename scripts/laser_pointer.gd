@@ -40,6 +40,7 @@ func _process(delta):
 				event.position = viewport_coords
 				event.global_position = viewport_coords
 				viewport.push_input(event)
+				print(event)
 	else:
 		self.scale.z = 100
 		self.position.z = -50

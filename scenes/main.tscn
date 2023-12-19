@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://d46wrkgdeynk"]
+[gd_scene load_steps=70 format=3 uid="uid://d46wrkgdeynk"]
 
 [ext_resource type="Script" path="res://scripts/initialize-webxr.gd" id="1_wh60i"]
 [ext_resource type="Environment" uid="uid://ds0hgagwdf5re" path="res://scenes/day_environment.tres" id="2_0cmo7"]
@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dfpusto4joa51" path="res://scenes/trees.tscn" id="19_xskjf"]
 [ext_resource type="PackedScene" uid="uid://bi35w78b8sam0" path="res://scenes/rocks.tscn" id="20_ugnda"]
 [ext_resource type="PackedScene" uid="uid://bjaeexnrxkhmh" path="res://polygon-adventure/models/SM_Env_HillSnow_04.fbx" id="21_hcg8d"]
-[ext_resource type="PackedScene" uid="uid://dck0vqihifudr" path="res://scenes/bushes.tscn" id="21_q62nl"]
+[ext_resource type="PackedScene" uid="uid://cbvuiest43oq7" path="res://scenes/bushes.tscn" id="21_q62nl"]
 [ext_resource type="AudioStream" uid="uid://dtw4cakxio6o0" path="res://sheep_baa.mp3" id="22_w0o47"]
 [ext_resource type="PackedScene" uid="uid://casc03wmcy4m" path="res://polygon-adventure/models/SM_Wep_Staff_01.fbx" id="23_jf37u"]
 [ext_resource type="Script" path="res://scripts/cast.gd" id="24_0tlhl"]
@@ -91,6 +91,9 @@ size = Vector3(1, 0.02, 0.01)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7oxxj"]
 size = Vector3(0.05, 1.5, 0.05)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_osnkb"]
+size = Vector3(1, 0.1, 1)
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_dgxf7"]
 viewport_path = NodePath("SpatialMenu/PlaneMesh/SubViewport")
 
@@ -113,8 +116,8 @@ default_font_size = 45
 size = Vector3(0.2, 1.2, 1.6)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xh35o"]
-height = 6.0
-radius = 10.0
+height = 7.0
+radius = 11.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hb3my"]
 radius = 5.7
@@ -163,6 +166,7 @@ unique_name_in_owner = true
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+current = true
 
 [node name="LeftController" type="XRController3D" parent="XROrigin3D"]
 tracker = &"left_hand"
@@ -305,7 +309,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
 mesh = SubResource("BoxMesh_cvyx7")
 
 [node name="Sheep_bounceable" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 1.23341, -4.06286)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 1.98341, -4.06286)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -326,7 +330,7 @@ stream = ExtResource("22_w0o47")
 autoplay = true
 
 [node name="Sheep_bounceable6" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50437, 1.54341, -14.0291)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50437, 2.29341, -14.0291)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -347,7 +351,7 @@ stream = ExtResource("22_w0o47")
 autoplay = true
 
 [node name="Sheep_bounceable5" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 2.01244, 14.1854)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 2.76244, 14.1854)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -368,7 +372,7 @@ stream = ExtResource("22_w0o47")
 autoplay = true
 
 [node name="Sheep_bounceable4" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8086, 1.36264, -4.79504)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8086, 2.11264, -4.79504)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -389,7 +393,7 @@ stream = ExtResource("22_w0o47")
 autoplay = true
 
 [node name="Sheep_bounceable2" type="RigidBody3D" parent="."]
-transform = Transform3D(0.989883, -0.141886, 0, 0.141886, 0.989883, 0, 0, 0, 1, 8.587, 3.71795, 5.07609)
+transform = Transform3D(0.989883, -0.141886, 0, 0.141886, 0.989883, 0, 0, 0, 1, 8.587, 4.46796, 5.07609)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -410,7 +414,7 @@ stream = ExtResource("22_w0o47")
 autoplay = true
 
 [node name="Sheep_bounceable3" type="RigidBody3D" parent="."]
-transform = Transform3D(0.989883, -0.141886, 0, 0.141725, 0.988761, -0.0475946, 0.00675301, 0.0471131, 0.998867, 3.96589, 4.23649, 11.8103)
+transform = Transform3D(0.989883, -0.141886, 0, 0.141725, 0.988761, -0.0475946, 0.00675301, 0.0471131, 0.998867, 4.55781, 4.19887, 11.8103)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -437,8 +441,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.0389)
 [node name="ROCKS" parent="." instance=ExtResource("20_ugnda")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60383, 0, 0)
 
-[node name="BUSHES" parent="." instance=ExtResource("21_q62nl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.67724)
+[node name="BUSHES2" parent="." instance=ExtResource("21_q62nl")]
 
 [node name="Staff" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2188, 0.434741, -17.582)
@@ -503,11 +506,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.672, 0, -13.149)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.672, 1, -13.149)
 
 [node name="SpatialMenu" type="Area3D" parent="." groups=["spatial_menus"]]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -14.2886, 1, -3)
+transform = Transform3D(1.19249e-08, 1, 0, 4.37114e-08, -5.21253e-16, -1, -1, 1.19249e-08, -4.37114e-08, -16.3723, 1, 14.626)
 script = ExtResource("35_3fwb6")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpatialMenu"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0499992, 0)
+shape = SubResource("BoxShape3D_osnkb")
+
 [node name="PlaneMesh" type="MeshInstance3D" parent="SpatialMenu"]
-transform = Transform3D(1, 0, 0, 0, 0.0348472, -0.999393, 0, 0.999393, 0.0348472, 0, 0.0985355, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_c2330")
 mesh = SubResource("PlaneMesh_8qr68")
 skeleton = NodePath("../..")
