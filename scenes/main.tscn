@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://d46wrkgdeynk"]
+[gd_scene load_steps=69 format=3 uid="uid://d46wrkgdeynk"]
 
 [ext_resource type="Script" path="res://scripts/initialize-webxr.gd" id="1_wh60i"]
 [ext_resource type="Environment" uid="uid://ds0hgagwdf5re" path="res://scenes/day_environment.tres" id="2_0cmo7"]
@@ -18,24 +18,17 @@
 [ext_resource type="PackedScene" uid="uid://d3vi5m8ygbtv3" path="res://polygon-adventure/models/SM_Bld_Fence_01.fbx" id="18_duc0l"]
 [ext_resource type="ArrayMesh" uid="uid://cqtdbrp11iwni" path="res://sheep/Sheep1.obj" id="19_nm4hj"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="19_ohn7p"]
+[ext_resource type="PackedScene" uid="uid://dfpusto4joa51" path="res://scenes/trees.tscn" id="19_xskjf"]
+[ext_resource type="PackedScene" uid="uid://bi35w78b8sam0" path="res://scenes/rocks.tscn" id="20_ugnda"]
 [ext_resource type="PackedScene" uid="uid://bjaeexnrxkhmh" path="res://polygon-adventure/models/SM_Env_HillSnow_04.fbx" id="21_hcg8d"]
-[ext_resource type="PackedScene" uid="uid://vnlyyfeixhxq" path="res://polygon-adventure/models/SM_Env_TreeBirch_01.fbx" id="22_dqpwx"]
+[ext_resource type="PackedScene" uid="uid://dck0vqihifudr" path="res://scenes/bushes.tscn" id="21_q62nl"]
 [ext_resource type="AudioStream" uid="uid://dtw4cakxio6o0" path="res://sheep_baa.mp3" id="22_w0o47"]
 [ext_resource type="PackedScene" uid="uid://casc03wmcy4m" path="res://polygon-adventure/models/SM_Wep_Staff_01.fbx" id="23_jf37u"]
-[ext_resource type="PackedScene" uid="uid://b2qrd5h5muyyl" path="res://polygon-adventure/models/SM_Env_TreeBirch_01_Snow.fbx" id="23_opfr0"]
 [ext_resource type="Script" path="res://scripts/cast.gd" id="24_0tlhl"]
-[ext_resource type="PackedScene" uid="uid://cxj6ahlfvhx5h" path="res://polygon-adventure/models/SM_Env_TreeBirch_03.fbx" id="24_6sw2t"]
-[ext_resource type="PackedScene" uid="uid://drumtx3m5uvyf" path="res://polygon-adventure/models/SM_Env_TreeBirch_02.fbx" id="25_iooix"]
 [ext_resource type="Material" uid="uid://blcn7tpb74kq1" path="res://cast.tres" id="25_luk70"]
 [ext_resource type="PackedScene" uid="uid://cr3g7xjeitcna" path="res://polygon-adventure/models/SM_Env_TreeLog_01.fbx" id="26_ff571"]
-[ext_resource type="PackedScene" uid="uid://cmfpy761aw0fo" path="res://polygon-adventure/models/SM_Env_TreePine_01.fbx" id="27_4nkum"]
-[ext_resource type="PackedScene" uid="uid://b2gime8alixt0" path="res://polygon-adventure/models/SM_Env_TreePine_01_Snow.fbx" id="28_dbu5s"]
 [ext_resource type="PackedScene" uid="uid://cn6764ddu0m45" path="res://polygon-adventure/models/SM_Env_TreePine_02.fbx" id="29_ym8o8"]
-[ext_resource type="PackedScene" uid="uid://bsy72ytj4ymcf" path="res://polygon-adventure/models/SM_Env_TreePine_04.fbx" id="30_gvd5v"]
-[ext_resource type="PackedScene" uid="uid://b22e3d26sdm7j" path="res://polygon-adventure/models/SM_Env_TreePine_03.fbx" id="31_k38xc"]
 [ext_resource type="PackedScene" uid="uid://dxawv41qlth8a" path="res://polygon-adventure/models/SM_Env_TreeStump_01.fbx" id="32_3g0vu"]
-[ext_resource type="PackedScene" uid="uid://weeysgfu1lgn" path="res://polygon-adventure/models/SM_Env_Tree_05.fbx" id="33_ccvvr"]
-[ext_resource type="PackedScene" uid="uid://brygrrxfg6bkg" path="res://polygon-adventure/models/SM_Env_Tree_04_Snow.fbx" id="34_swj4k"]
 [ext_resource type="Script" path="res://scripts/spatial-menu.gd" id="35_3fwb6"]
 [ext_resource type="PackedScene" uid="uid://bpb2jyen7md7p" path="res://polygon-adventure/models/SM_Bld_Stall_Cover_03.fbx" id="35_dxsix"]
 [ext_resource type="PackedScene" uid="uid://cw12ruw0xdvfd" path="res://polygon-adventure/models/SM_Bld_FencePost_01.fbx" id="36_tiylr"]
@@ -312,7 +305,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
 mesh = SubResource("BoxMesh_cvyx7")
 
 [node name="Sheep_bounceable" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 0.833407, -4.06286)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 1.23341, -4.06286)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -333,7 +326,7 @@ stream = ExtResource("22_w0o47")
 autoplay = true
 
 [node name="Sheep_bounceable6" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50437, 1.14341, -14.0291)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50437, 1.54341, -14.0291)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -354,7 +347,7 @@ stream = ExtResource("22_w0o47")
 autoplay = true
 
 [node name="Sheep_bounceable5" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 1.61244, 14.1854)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 2.01244, 14.1854)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -375,7 +368,7 @@ stream = ExtResource("22_w0o47")
 autoplay = true
 
 [node name="Sheep_bounceable4" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8086, 0.962641, -4.79504)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8086, 1.36264, -4.79504)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -396,7 +389,7 @@ stream = ExtResource("22_w0o47")
 autoplay = true
 
 [node name="Sheep_bounceable2" type="RigidBody3D" parent="."]
-transform = Transform3D(0.989883, -0.141886, 0, 0.141886, 0.989883, 0, 0, 0, 1, 8.587, 3.31795, 5.07609)
+transform = Transform3D(0.989883, -0.141886, 0, 0.141886, 0.989883, 0, 0, 0, 1, 8.587, 3.71795, 5.07609)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -417,7 +410,7 @@ stream = ExtResource("22_w0o47")
 autoplay = true
 
 [node name="Sheep_bounceable3" type="RigidBody3D" parent="."]
-transform = Transform3D(0.989883, -0.141886, 0, 0.141725, 0.988761, -0.0475946, 0.00675301, 0.0471131, 0.998867, 3.96589, 3.83648, 11.8103)
+transform = Transform3D(0.989883, -0.141886, 0, 0.141725, 0.988761, -0.0475946, 0.00675301, 0.0471131, 0.998867, 3.96589, 4.23649, 11.8103)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -437,6 +430,15 @@ shape = SubResource("ConvexPolygonShape3D_jfxrb")
 transform = Transform3D(1, 4.94765e-10, -4.65661e-10, -1.44355e-08, 1, 0, -4.65661e-10, 0, 1, -0.0155902, -0.108766, 0.00523472)
 stream = ExtResource("22_w0o47")
 autoplay = true
+
+[node name="TREES" parent="." instance=ExtResource("19_xskjf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.0389)
+
+[node name="ROCKS" parent="." instance=ExtResource("20_ugnda")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60383, 0, 0)
+
+[node name="BUSHES" parent="." instance=ExtResource("21_q62nl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.67724)
 
 [node name="Staff" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2188, 0.434741, -17.582)
@@ -460,36 +462,6 @@ mesh = SubResource("BoxMesh_hxw0k")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Staff"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_7oxxj")
-
-[node name="SM_Env_TreeBirch_01" parent="." instance=ExtResource("22_dqpwx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.249025, 0, 14.1143)
-
-[node name="SM_Env_TreeBirch_01_Snow" parent="." instance=ExtResource("23_opfr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30953, 0, 9.80404)
-
-[node name="SM_Env_TreeBirch_03" parent="." instance=ExtResource("24_6sw2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4004, 0, 8.59277)
-
-[node name="SM_Env_TreeBirch_02" parent="." instance=ExtResource("25_iooix")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6923, 0, 4.71082)
-
-[node name="SM_Env_TreePine_01" parent="." instance=ExtResource("27_4nkum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2819, 0, 0.819778)
-
-[node name="SM_Env_TreePine_01_Snow" parent="." instance=ExtResource("28_dbu5s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8286, 0, -2.37922)
-
-[node name="SM_Env_TreePine_04" parent="." instance=ExtResource("30_gvd5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8377, 0, -0.0980077)
-
-[node name="SM_Env_TreePine_03" parent="." instance=ExtResource("31_k38xc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61585, 0, 13.2498)
-
-[node name="SM_Env_Tree_05" parent="." instance=ExtResource("33_ccvvr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8289, 0, -6.90726)
-
-[node name="SM_Env_Tree_04_Snow" parent="." instance=ExtResource("34_swj4k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0102, -1.90735e-06, 2.07941)
 
 [node name="SM_Bld_Stall_Cover_03" parent="." instance=ExtResource("35_dxsix")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -17.304, 0, -18.1773)
@@ -531,7 +503,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.672, 0, -13.149)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.672, 1, -13.149)
 
 [node name="SpatialMenu" type="Area3D" parent="." groups=["spatial_menus"]]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, -3)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -14.2886, 1, -3)
 script = ExtResource("35_3fwb6")
 
 [node name="PlaneMesh" type="MeshInstance3D" parent="SpatialMenu"]

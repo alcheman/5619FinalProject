@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://dck0vqihifudr"]
+
+[ext_resource type="PackedScene" uid="uid://dyn30er0u1kb7" path="res://polygon-adventure/models/SM_Env_Bush_03.fbx" id="1_554us"]
+[ext_resource type="PackedScene" uid="uid://dvclhmgr8af16" path="res://polygon-adventure/models/SM_Env_Bush_02.fbx" id="2_c1o6d"]
+[ext_resource type="PackedScene" uid="uid://bgvjxnxast0t6" path="res://polygon-adventure/models/SM_Env_Bush_01.fbx" id="3_o8fun"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wtlcb"]
+size = Vector3(1, 3.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cgfa8"]
+size = Vector3(1.6, 4.2, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_551xu"]
+size = Vector3(1.5, 2, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_63dvl"]
+size = Vector3(1.5, 3.5, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2xbha"]
+size = Vector3(1, 2.5, 1)
+
+[node name="BUSHES" type="Node3D"]
+
+[node name="Bush_06" parent="." instance=ExtResource("1_554us")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69226, 0, -9.9403)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Bush_06"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bush_06/RigidBody3D"]
+shape = SubResource("BoxShape3D_wtlcb")
+
+[node name="Bush_07" parent="." instance=ExtResource("2_c1o6d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.703782, 0, -10.2424)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Bush_07"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bush_07/RigidBody3D"]
+shape = SubResource("BoxShape3D_cgfa8")
+
+[node name="Bush_08" parent="." instance=ExtResource("3_o8fun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.993554, 0, -6.72293)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Bush_08"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bush_08/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67465, 0.107292)
+shape = SubResource("BoxShape3D_551xu")
+
+[node name="Bush_01" parent="." instance=ExtResource("3_o8fun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42942, 0, 10.7106)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Bush_01"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bush_01/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67465, 0.107292)
+shape = SubResource("BoxShape3D_551xu")
+
+[node name="Bush_02" parent="." instance=ExtResource("2_c1o6d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.815827, 0, 13.0208)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Bush_02"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bush_02/RigidBody3D"]
+shape = SubResource("BoxShape3D_cgfa8")
+
+[node name="Bush_03" parent="." instance=ExtResource("3_o8fun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0414, 0, 2.77072)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Bush_03"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bush_03/RigidBody3D"]
+shape = SubResource("BoxShape3D_63dvl")
+
+[node name="Bush_04" parent="." instance=ExtResource("2_c1o6d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8525, 0, 4.6755)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Bush_04"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bush_04/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.663406, 0)
+shape = SubResource("BoxShape3D_2xbha")
+
+[node name="Bush_05" parent="." instance=ExtResource("1_554us")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9128, 0, 4.26736)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Bush_05"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bush_05/RigidBody3D"]
+shape = SubResource("BoxShape3D_wtlcb")
