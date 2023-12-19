@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://d46wrkgdeynk"]
+[gd_scene load_steps=91 format=3 uid="uid://d46wrkgdeynk"]
 
 [ext_resource type="Script" path="res://scripts/initialize-webxr.gd" id="1_wh60i"]
 [ext_resource type="Environment" uid="uid://ds0hgagwdf5re" path="res://scenes/day_environment.tres" id="2_0cmo7"]
@@ -129,6 +129,15 @@ size = Vector3(1.5, 3.5, 1.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2xbha"]
 size = Vector3(1, 2.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0n3w0"]
+size = Vector3(3, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s4oep"]
+size = Vector3(0.75, 0.75, 0.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h17ew"]
+size = Vector3(2, 1.5, 2.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xc5hg"]
 size = Vector3(0.2, 1.2, 1.7)
@@ -348,7 +357,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.234, 0.925981, 15.2501)
 mesh = SubResource("BoxMesh_cvyx7")
 
 [node name="Sheep_bounceable" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 1.00739, -4.06286)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22335, 1.30739, -4.06286)
 lock_rotation = true
 script = ExtResource("19_ohn7p")
 picked_up_layer = 1
@@ -476,32 +485,77 @@ shape = SubResource("BoxShape3D_wtlcb")
 
 [node name="ROCKS" type="Node3D" parent="."]
 
-[node name="SM_Env_Rock_05" parent="ROCKS" instance=ExtResource("55_3gn8v")]
+[node name="Rock_05" parent="ROCKS" instance=ExtResource("55_3gn8v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.46706, 0, -17.1541)
 
-[node name="SM_Env_Rock_07" parent="ROCKS" instance=ExtResource("56_4keru")]
+[node name="RigidBody3D" type="RigidBody3D" parent="ROCKS/Rock_05"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ROCKS/Rock_05/RigidBody3D"]
+shape = SubResource("BoxShape3D_0n3w0")
+
+[node name="Rock_07" parent="ROCKS" instance=ExtResource("56_4keru")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8089, 0, -17.0953)
 
-[node name="SM_Env_Rock_09" parent="ROCKS" instance=ExtResource("48_dtnpk")]
+[node name="RigidBody3D" type="RigidBody3D" parent="ROCKS/Rock_07"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ROCKS/Rock_07/RigidBody3D"]
+shape = SubResource("BoxShape3D_s4oep")
+
+[node name="Rock_09" parent="ROCKS" instance=ExtResource("48_dtnpk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3, 0, -15.1337)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="ROCKS/Rock_09"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ROCKS/Rock_09/RigidBody3D"]
+shape = SubResource("BoxShape3D_s4oep")
 
 [node name="Rock_08" parent="ROCKS" instance=ExtResource("48_dtnpk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32548, 0, -6.55928)
 
+[node name="RigidBody3D" type="RigidBody3D" parent="ROCKS/Rock_08"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ROCKS/Rock_08/RigidBody3D"]
+shape = SubResource("BoxShape3D_s4oep")
+
 [node name="Rock_010" parent="ROCKS" instance=ExtResource("49_nhoc7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97359, 0, -7.22052)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="ROCKS/Rock_010"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ROCKS/Rock_010/RigidBody3D"]
+shape = SubResource("BoxShape3D_s4oep")
 
 [node name="Rock_011" parent="ROCKS" instance=ExtResource("50_2o3ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.59842, 0, -7.5328)
 
+[node name="RigidBody3D" type="RigidBody3D" parent="ROCKS/Rock_011"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ROCKS/Rock_011/RigidBody3D"]
+shape = SubResource("BoxShape3D_h17ew")
+
 [node name="Rock_012" parent="ROCKS" instance=ExtResource("49_nhoc7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.36674, 0, 1.78737)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="ROCKS/Rock_012"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ROCKS/Rock_012/RigidBody3D"]
+shape = SubResource("BoxShape3D_s4oep")
 
 [node name="Rock_013" parent="ROCKS" instance=ExtResource("50_2o3ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.42121, 0.0357933, 0.435133)
 
+[node name="RigidBody3D" type="RigidBody3D" parent="ROCKS/Rock_013"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ROCKS/Rock_013/RigidBody3D"]
+shape = SubResource("BoxShape3D_h17ew")
+
 [node name="Rock_014" parent="ROCKS" instance=ExtResource("51_a0bg8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.793006, 0, 11.4462)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="ROCKS/Rock_014"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ROCKS/Rock_014/RigidBody3D"]
+shape = SubResource("BoxShape3D_h17ew")
 
 [node name="TREES" type="Node3D" parent="."]
 
